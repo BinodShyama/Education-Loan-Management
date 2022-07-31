@@ -1,0 +1,111 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Migrations\20220729145436_initial.cs" />
+    <Compile Remove="Migrations\20220729145436_initial.Designer.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="wwwroot\js\LoanManagement.Member.js" />
+    <None Include="wwwroot\js\LoanManagement.MemberList.js" />
+    <None Include="wwwroot\js\site.js" />
+    <None Include="wwwroot\lib\bootstrap\dist\css\bootstrap-grid.css.map" />
+    <None Include="wwwroot\lib\bootstrap\dist\css\bootstrap-grid.min.css.map" />
+    <None Include="wwwroot\lib\bootstrap\dist\css\bootstrap-reboot.css.map" />
+    <None Include="wwwroot\lib\bootstrap\dist\css\bootstrap-reboot.min.css.map" />
+    <None Include="wwwroot\lib\bootstrap\dist\css\bootstrap.css.map" />
+    <None Include="wwwroot\lib\bootstrap\dist\css\bootstrap.min.css.map" />
+    <None Include="wwwroot\lib\bootstrap\dist\js\bootstrap.bundle.js" />
+    <None Include="wwwroot\lib\bootstrap\dist\js\bootstrap.bundle.js.map" />
+    <None Include="wwwroot\lib\bootstrap\dist\js\bootstrap.bundle.min.js" />
+    <None Include="wwwroot\lib\bootstrap\dist\js\bootstrap.bundle.min.js.map" />
+    <None Include="wwwroot\lib\bootstrap\dist\js\bootstrap.js" />
+    <None Include="wwwroot\lib\bootstrap\dist\js\bootstrap.js.map" />
+    <None Include="wwwroot\lib\bootstrap\dist\js\bootstrap.min.js" />
+    <None Include="wwwroot\lib\bootstrap\dist\js\bootstrap.min.js.map" />
+    <None Include="wwwroot\lib\bootstrap\LICENSE" />
+    <None Include="wwwroot\lib\chosen\chosen.jquery.min.js" />
+    <None Include="wwwroot\lib\datatables.net\jquery.dataTables.js" />
+    <None Include="wwwroot\lib\datatables.net\jquery.dataTables.min.js" />
+    <None Include="wwwroot\lib\datatables\datatables-buttons\js\buttons.colVis.js" />
+    <None Include="wwwroot\lib\datatables\datatables-buttons\js\buttons.colVis.min.js" />
+    <None Include="wwwroot\lib\datatables\datatables-buttons\js\buttons.flash.js" />
+    <None Include="wwwroot\lib\datatables\datatables-buttons\js\buttons.flash.min.js" />
+    <None Include="wwwroot\lib\datatables\datatables-buttons\js\buttons.html5.js" />
+    <None Include="wwwroot\lib\datatables\datatables-buttons\js\buttons.html5.min.js" />
+    <None Include="wwwroot\lib\datatables\datatables-buttons\js\buttons.print.js" />
+    <None Include="wwwroot\lib\datatables\datatables-buttons\js\buttons.print.min.js" />
+    <None Include="wwwroot\lib\datatables\datatables-buttons\js\dataTables.buttons.js" />
+    <None Include="wwwroot\lib\datatables\datatables-buttons\js\dataTables.buttons.min.js" />
+    <None Include="wwwroot\lib\datatables\js\datatables-colvis\js\dataTables.colVis.js" />
+    <None Include="wwwroot\lib\datatables\js\datatables-colvis\js\dataTables.colVis.min.js" />
+    <None Include="wwwroot\lib\datatables\js\dataTables.bootstrap.js" />
+    <None Include="wwwroot\lib\datatables\js\dataTables.bootstrap.min.js" />
+    <None Include="wwwroot\lib\datatables\js\dataTables.bootstrap4.js" />
+    <None Include="wwwroot\lib\datatables\js\dataTables.bootstrap4.min.js" />
+    <None Include="wwwroot\lib\datatables\js\dataTables.colVis.js" />
+    <None Include="wwwroot\lib\datatables\js\dataTables.colVis.min.js" />
+    <None Include="wwwroot\lib\datatables\js\dataTables.dataTables.js" />
+    <None Include="wwwroot\lib\datatables\js\dataTables.jqueryui.js" />
+    <None Include="wwwroot\lib\datatables\js\dataTables.jqueryui.min.js" />
+    <None Include="wwwroot\lib\datatables\js\dataTables.material.js" />
+    <None Include="wwwroot\lib\datatables\js\dataTables.material.min.js" />
+    <None Include="wwwroot\lib\datatables\js\jquery.dataTables.min.js" />
+    <None Include="wwwroot\lib\font-awesome\js\all.js" />
+    <None Include="wwwroot\lib\font-awesome\js\all.min.js" />
+    <None Include="wwwroot\lib\font-awesome\js\brands.js" />
+    <None Include="wwwroot\lib\font-awesome\js\brands.min.js" />
+    <None Include="wwwroot\lib\font-awesome\js\conflict-detection.js" />
+    <None Include="wwwroot\lib\font-awesome\js\conflict-detection.min.js" />
+    <None Include="wwwroot\lib\font-awesome\js\fontawesome.js" />
+    <None Include="wwwroot\lib\font-awesome\js\fontawesome.min.js" />
+    <None Include="wwwroot\lib\font-awesome\js\regular.js" />
+    <None Include="wwwroot\lib\font-awesome\js\regular.min.js" />
+    <None Include="wwwroot\lib\font-awesome\js\solid.js" />
+    <None Include="wwwroot\lib\font-awesome\js\solid.min.js" />
+    <None Include="wwwroot\lib\font-awesome\js\v4-shims.js" />
+    <None Include="wwwroot\lib\font-awesome\js\v4-shims.min.js" />
+    <None Include="wwwroot\lib\font-awesome\sprites\brands.svg" />
+    <None Include="wwwroot\lib\font-awesome\sprites\regular.svg" />
+    <None Include="wwwroot\lib\font-awesome\sprites\solid.svg" />
+    <None Include="wwwroot\lib\font-awesome\webfonts\fa-brands-400.woff2" />
+    <None Include="wwwroot\lib\font-awesome\webfonts\fa-regular-400.woff2" />
+    <None Include="wwwroot\lib\font-awesome\webfonts\fa-solid-900.woff2" />
+    <None Include="wwwroot\lib\font-awesome\webfonts\fa-v4compatibility.woff2" />
+    <None Include="wwwroot\lib\jquery-validation-unobtrusive\jquery.validate.unobtrusive.js" />
+    <None Include="wwwroot\lib\jquery-validation-unobtrusive\jquery.validate.unobtrusive.min.js" />
+    <None Include="wwwroot\lib\jquery-validation\dist\additional-methods.js" />
+    <None Include="wwwroot\lib\jquery-validation\dist\additional-methods.min.js" />
+    <None Include="wwwroot\lib\jquery-validation\dist\jquery.validate.js" />
+    <None Include="wwwroot\lib\jquery-validation\dist\jquery.validate.min.js" />
+    <None Include="wwwroot\lib\jquery-validation\LICENSE.md" />
+    <None Include="wwwroot\lib\jquery.inputmask\jquery.inputmask.min.js" />
+    <None Include="wwwroot\lib\jquery\dist\jquery.js" />
+    <None Include="wwwroot\lib\jquery\dist\jquery.min.js" />
+    <None Include="wwwroot\lib\jquery\dist\jquery.min.map" />
+    <None Include="wwwroot\lib\nifty\dist\js\nifty.min.js" />
+    <None Include="wwwroot\lib\pace\pace.min.js" />
+    <None Include="wwwroot\lib\select2\js\select2.min.js" />
+    <None Include="wwwroot\lib\toastr.js\toastr.js.map" />
+    <None Include="wwwroot\lib\toastr.js\toastr.min.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="MediatR" Version="10.0.1" />
+    <PackageReference Include="MediatR.Extensions.Microsoft.DependencyInjection" Version="10.0.1" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="3.1.8">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="3.1.5" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\LoanManagement.Application\LoanManagement.Application.csproj" />
+    <ProjectReference Include="..\LoanManagement.Domain\LoanManagement.Domain.csproj" />
+    <ProjectReference Include="..\LoanManagement.ViewModel\LoanManagement.ViewModel.csproj" />
+  </ItemGroup>
+
+</Project>

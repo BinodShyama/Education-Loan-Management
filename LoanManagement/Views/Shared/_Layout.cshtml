@@ -1,0 +1,169 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <title>Education Loan Management</title>
+    <link rel="stylesheet" href="~/css/site.css" />
+
+    <!--STYLESHEET-->
+    <!--=================================================-->
+    <!--Open Sans Font [ OPTIONAL ]-->
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700' rel='stylesheet' type='text/css'>
+
+    <!--Bootstrap Stylesheet [ REQUIRED ]-->
+    <link href="~/lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+
+
+    <!--Nifty Stylesheet [ REQUIRED ]-->
+    <link href="~/lib/nifty/dist/css/nifty.css" rel="stylesheet" />
+    @*<link href="~/lib/nifty/dist/css/nifty.min.css" rel="stylesheet" />*@
+
+    <link href="~/lib/font-awesome/css/all.min.css" rel="stylesheet" />
+
+    <!--=================================================-->
+    <!--Pace - Page Load Progress Par [OPTIONAL]-->
+    <link href="~/lib/pace/pace.min.css" rel="stylesheet" />
+    <script src="~/lib/pace/pace.min.js"></script>
+
+    <link href="~/lib/select2/css/select2.min.css" rel="stylesheet" />
+    <link href="~/lib/chosen/chosen.min.css" rel="stylesheet" />
+    <link href="~/lib/toastr.js/toastr.min.css" rel="stylesheet" />
+    <link href="~/lib/datatables/css/dataTables.bootstrap4.min.css" rel="stylesheet" />
+</head>
+<body>
+    <div id="container" class="effect aside-float aside-bright mainnav-lg">
+
+        <!--NAVBAR-->
+        <!--===================================================-->
+        <header id="navbar">
+            <div id="navbar-container" class="boxed">
+
+                <!--Brand logo & name-->
+                <!--================================-->
+                <div class="navbar-header">
+                    <a href="index.html" class="navbar-brand">
+                        <img src="/img/logo.png" alt="Bhaktapur Municipality" class="brand-icon p-1">
+                        <div class="brand-title">
+                            <span class="brand-text">Bhaktapur</span>
+                        </div>
+                    </a>
+                </div>
+                <div class="navbar-content">
+                    <ul class="nav navbar-top-links">
+
+                        <!--Navigation toogle button-->
+                        <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+                        <li class="tgl-menu-btn">
+                            <a class="mainnav-toggle" href="#">
+                                <i class="fa-solid fa-list"></i>
+                            </a>
+                        </li>
+
+
+                    </ul>
+                    <ul class="nav navbar-top-links">
+                        <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+                        <!--End notifications dropdown-->
+                        <!--User dropdown-->
+                        <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+                        <li id="dropdown-user" class="dropdown">
+                            <a href="#" data-toggle="dropdown"> @*class="dropdown-toggle text-right">*@
+                                <span class="ic-user float-right">
+                                    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+                                    <!--You can use an image instead of an icon.-->
+                                    <!--<img class="rounded-circle img-user media-object" src="img/profile-photos/1.png" alt="Profile Picture">-->
+                                    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+                                    <i class="fa-solid fa-user-lock"></i>
+                                </span>
+                                <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+                                <!--You can also display a user name in the navbar.-->
+                                <!--<div class="username hidden-xs">Aaron Chavez</div>-->
+                                <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+                            </a>
+
+
+                            <div class="dropdown-menu dropdown-menu-sm dropdown-menu-right panel-default">
+                                <ul class="head-list">
+                                    <li>
+                                        <a href="/account/logout"><i class="fa-solid fa-right-from-bracket"></i> Logout</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
+
+                        <li>
+                            <a href="#" class="aside-toggle">
+                                <i class="demo-pli-dot-vertical"></i>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <!--================================-->
+                <!--End Navbar Dropdown-->
+
+            </div>
+        </header>
+        <!--===================================================-->
+        <!--END NAVBAR-->
+
+        <div class="boxed">
+            <partial name="_Sidebar" />
+            <div id="content-container">
+                <main role="main">
+                    @RenderBody()
+                </main>
+
+
+            </div>
+
+
+
+        </div>
+
+        <footer id="footer">
+
+            <div class="show-fixed pad-rgt float-right">
+                You have <a href="#" class="text-main"><span class="badge badge-danger">3</span> pending action.</a>
+            </div>
+
+
+
+            <!-- Visible when footer positions are static -->
+            <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+            <div class="hide-fixed float-right pad-rgt">
+               <strong></strong> 
+            </div>
+
+            <p class="pad-lft">&#0169; @DateTime.Now.Year Bhaktapur Municipality</p>
+
+
+
+        </footer>
+        <button class="scroll-top btn">
+            <i class="pci-chevron chevron-up"></i>
+        </button>
+        <!--===================================================-->
+    </div>
+    <alert></alert>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/lib/nifty/dist/js/nifty.min.js"></script>
+    <script src="~/lib/chosen/chosen.jquery.min.js"></script>
+    <script src="~/lib/select2/js/select2.min.js"></script>
+    <script src="~/lib/toastr.js/toastr.min.js"></script>
+    <script src="~/lib/jquery.inputmask/jquery.inputmask.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    <script src="~/lib/datatables/js/jquery.dataTables.min.js"></script>
+    <script src="~/lib/datatables/js/dataTables.bootstrap4.min.js"></script>
+    <script src="~/lib/datatables/datatables-buttons/js/dataTables.buttons.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap-autocomplete.min.js"></script>
+    <script src="~/lib/bootbox/bootbox.min.js"></script>
+    <script src="~/js/nepalicalendar.js"></script>
+    @RenderSection("Scripts", required: false)
+</body>
+</html>

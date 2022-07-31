@@ -1,0 +1,112 @@
+﻿
+@model LoanManagement.ViewModel.LoanDisbrusement.LoanDisbrusementViewDto
+@inject LoanManagement.Sevices.INepaliDateService _date
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Invoice</title>
+    <link rel="license" href="https://www.opensource.org/licenses/mit-license/">
+    <link href="~/lib/nifty/dist/css/nifty.min.css" rel="stylesheet" />
+    <link href="~/lib/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
+    <link href="~/lib/fonts/open-san.css" rel="stylesheet" />
+    <link href="~/css/print.css" rel="stylesheet" />
+</head>
+<body>
+    <header>
+        <h1>Bhaktapur Municipality</h1>
+        <div class="text-center address">
+            <p>Bkaktapur, Nepal</p>
+        </div>
+        @*<span><img alt="" src="http://www.jonathantneal.com/examples/invoice/logo.png"><input type="file" accept="image/*"></span>*@
+    </header>
+    <div>
+        <div class="d-flex flex-row-reverse">
+            <table class="invoice-details">
+                <tbody>
+                    <tr>
+                        <td class="text-main ">Voucher No.</td>
+                        <td class="text-right text-info text-detail">@Model.VoucherNo</td>
+                    </tr>
+                    <tr>
+                        <td class="text-main pr-2">Voucher Date</td>
+                        <td class="text-right text-detail pl-2">@Model.VoucherDateNep</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <article class="mt-2">
+
+            <table class="table invoice-summary">
+                <thead>
+                    <tr class="bg-trans-dark">
+                        <th class="text-main"><span>S.no.</span></th>
+                        <th class="text-main"><span>Description</span></th>
+                        <th class="text-main"><span>Ref No.</span></th>
+                        <th class="text-main"><span>Debit</span></th>
+                        <th class="text-main"><span>Credit</span></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    
+                    <tr>
+                        <td class="text-detail">1</td>
+                        <td class="text-detail">Cheque Payment</td>
+                        <td class="text-detail"></td>
+                        <td class="text-detail"></td>
+                        <td class="text-detail">@Model.Amount.ToString("0.00")</td>
+                    </tr>
+                    @*<tr>
+                        <td class="text-detail">2</td>
+                        <td class="text-detail"><span>Experience Review</span></td>
+                        <td class="text-detail">150.00</td>
+                        <td class="text-detail"></td>
+                        <td class="text-detail"></td>
+                    </tr>*@
+                    <tr>
+                        <td class="text-detail"></td>
+                        <td class="text-detail"></td>
+                        <td class="text-detail float-right"><span>Total</span></td>
+                        <td class="text-detail"></td>
+                        <td class="text-main">@Model.Amount.ToString("0.00")</td>
+                    </tr>
+                </tbody>
+            </table>
+        </article>
+
+        <div class=" text-right" style="
+                    bottom: 0;
+                    width: auto;">
+            <div class="d-flex justify-content-between">
+                <table class="invoice-details">
+                    <tr>
+                        <td class="text-main text-center">
+                            <b> Received By</b>
+                            <br>
+                            <br>
+                            ...................................
+                            <br>
+                            <br>
+                            <br>
+                        </td>
+                    </tr>
+                </table>
+
+                <table class="invoice-details">
+                    <tr>
+                        <td class="text-main text-center">
+                            <b> Authorized Signature </b>
+                            <br>
+                            <br>
+                            ...................................
+                            <br>
+                            <br>
+                            <br>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <p class="float-left text-detail">Print Date: @_date.GetCurrentNepaliDate() </p>
+        </div>
+    </div>
+</body>
+</html>

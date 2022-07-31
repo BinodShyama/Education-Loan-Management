@@ -1,0 +1,88 @@
+{
+  "version": "1.0",
+  "defaultProvider": "cdnjs",
+  "libraries": [
+    {
+      "library": "datatables.net@2.1.1",
+      "destination": "wwwroot/lib/datatables.net/"
+    },
+    {
+      "library": "toastr.js@2.1.4",
+      "destination": "wwwroot/lib/toastr.js/"
+    },
+    {
+      "library": "datatables@1.10.21",
+      "destination": "wwwroot/lib/datatables/",
+      "files": [
+        "js/jquery.dataTables.min.js",
+        "js/dataTables.bootstrap.js",
+        "js/dataTables.bootstrap.min.js",
+        "js/dataTables.bootstrap4.js",
+        "js/dataTables.bootstrap4.min.js",
+        "js/dataTables.dataTables.js",
+        "js/dataTables.jqueryui.js",
+        "js/dataTables.jqueryui.min.js",
+        "js/dataTables.material.js",
+        "js/dataTables.material.min.js",
+        "css/dataTables.bootstrap.css",
+        "css/dataTables.bootstrap.min.css",
+        "css/dataTables.bootstrap4.css",
+        "css/dataTables.bootstrap4.min.css",
+        "css/dataTables.material.css",
+        "css/dataTables.material.min.css",
+        "css/jquery.dataTables.min.css",
+        "css/jquery.dataTables.css",
+        "images/sort_asc.png",
+        "images/sort_asc_disabled.png",
+        "images/sort_both.png",
+        "images/sort_desc.png",
+        "images/sort_desc_disabled.png"
+      ]
+    },
+    {
+      "library": "font-awesome@6.1.1",
+      "destination": "wwwroot/lib/font-awesome/"
+    },
+    {
+      "library": "datatables-colvis@1.1.2",
+      "destination": "wwwroot/lib/datatables/js/datatables-colvis/"
+    },
+    {
+      "library": "datatables-buttons@2.2.3",
+      "destination": "wwwroot/lib/datatables/datatables-buttons/"
+    },
+    {
+      "library": "jquery.inputmask@5.0.7",
+      "destination": "wwwroot/lib/jquery.inputmask/",
+      "files": [
+        "jquery.inputmask.min.js"
+      ]
+    },
+    {
+      "library": "lottie-player@1.5.7",
+      "destination": "wwwroot/lib/lottie-player/",
+      "files": [
+        "lottie-player.js",
+        "lottie-player.min.js"
+      ]
+    },
+    {
+      "library": "autocomplete.js@0.38.1",
+      "destination": "wwwroot/lib/autocomplete.js/",
+      "files": [
+        "autocomplete.jquery.min.js"
+      ]
+    },
+    {
+      "library": "moment.js@2.29.4",
+      "destination": "wwwroot/lib/moment.js/",
+      "files": [
+        "moment.min.js"
+      ]
+    },
+    {
+      "library": "bootbox.js@5.5.3",
+      "destination": "wwwroot/lib/bootbox.js/"
+    }
+  ]
+}

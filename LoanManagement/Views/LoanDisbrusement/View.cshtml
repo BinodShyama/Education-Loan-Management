@@ -1,0 +1,319 @@
+﻿@model LoanManagement.ViewModel.LoanDisbrusement.LoanDisbrusementViewDto
+@inject LoanManagement.Sevices.INepaliDateService _dateService;
+@{
+    ViewData["Title"] = "LoadDisbrusement";
+}
+
+<div id="page-head">
+
+    <div id="page-title">
+        <h1 class="page-header text-overflow">Loan Disbrusement</h1>
+    </div>
+    <ol class="breadcrumb">
+        <li><a href="#"><i class="fa-solid fa-house"></i></a></li>
+        <li><a href="/LoanDisbrusement/Index">Loan Disbrusement List</a></li>
+        <li class="active">New</li>
+    </ol>
+
+</div>
+<div id="page-content">
+
+    <div class="card">
+        <div class="eq-height clearfix">
+            <div class="col-md-8 eq-box-md box-vmiddle-wrap bord-hor">
+
+                <div class="panel-heading">
+                    <h3 class="panel-title">Loan disbrusement form</h3>
+                </div>
+
+                <!--Horizontal Form-->
+                <!--===================================================-->
+                @*<form class="form-horizontal" asp-controller="LoanDisbrusement" method="post">*@
+                <div class="row ml-2 col-md-12">
+                    <div class="form-group col-md-6">
+                        <label class="control-label" asp-for="VoucherDateNep">Voucher Date<span class="text-danger pl-1" title="Required field">*</span></label>
+                        <input asp-for="VoucherDateNep" placeholder="Enter voucher date(yyyy-mm-dd)" readonly id="voucher-date" class="form-control ndate">
+                        <span asp-validation-for="VoucherDateNep"></span>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label class="control-label" for="sel-member">Member Name<span class="text-danger pl-1" title="Required field">*</span></label>
+                        <select disabled asp-items="@ViewBag.Member" asp-for="MemberId" readonly placeholder="Search by name" id="sel-member" class="form-control select-chosen">
+                            <option value="">Search by name</option>
+                        </select>
+                        <span asp-validation-for="MemberId"></span>
+                    </div>
+                    <div class="form-group col-md-12">
+                        <label class="ontrol-label">Disbrusement Amount<span class="text-danger pl-1" title="Required field">*</span></label>
+
+                        <div class="panel-body">
+                            <div class="table-responsive">
+                                <table class="table table-striped table-installment">
+                                    <thead>
+                                        <tr>
+                                            <th>Installments</th>
+                                            <th>Amount</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @{
+                                            foreach (var item in Model.Installments)
+                                            {
+                                                <tr>
+                                                    <td>
+                                                        <label for="@item.Description">@item.Description</label>
+                                                    </td>
+                                                    <td>@item.Amount.ToString("0.00")</td>
+                                                </tr>
+                                            }
+                                        }
+
+
+                                    </tbody>
+                                </table>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="form-group col-md-12">
+                        <label for="FirstName">Payment Detail<span class="text-danger pl-1" title="Required field">*</span></label>
+                        <div class="col-md-12">
+                            <div class="radio custom-control custom-radio custom-control-inline">
+                                <input disabled id="radio-bank" class="magic-radio" readonly checked type="radio">
+                                <label for="radio-bank">By bank</label>
+                            </div>
+                            <!-- Radio Buttons -->
+                            <div class="radio custom-control custom-radio custom-control-inline">
+                                <input id="radio-cash" disabled type="radio" class="magic-radio">
+                                <label for="radio-cash">Cash</label>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label asp-for="BankName">Bank Name<span class="text-danger pl-1" title="Required field">*</span></label>
+                        <input disabled data-prefetch="/LoanDisbrusement/GetBankList" readonly autocomplete="off" placeholder="Enter Bank Name" autocomplete="off" class="form-control" type="text" id="bank" asp-for="BankName">
+                        <span asp-validation-for="BankName"></span>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label asp-for="ChequeDate">Chaque Date(B.S.)<span class="text-danger" title="Required field">*</span></label>
+                        <input disabled placeholder="Enter Chaque Date" readonly class="form-control ndate" id="cheque-date" asp-for="ChequeDate">
+                        <span asp-validation-for="ChequeDate"></span>
+                    </div>
+
+                    <div class="form-group col-md-6">
+                        <label asp-for="ChequeNo">Cheque No.<span class="text-danger pl-1" title="Required field">*</span></label>
+                        <input disabled placeholder="Enter Cheque Number" readonly class="form-control" asp-for="ChequeNo">
+                        <span asp-validation-for="ChequeNo"></span>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label asp-for="Amount">Cheque Amount</label>
+                        <input disabled placeholder="Rs. 0.00" class="form-control" readonly type="text" id="cheque-amount" asp-for="ChequeAmount">
+                        <span asp-validation-for="ChequeAmount"></span>
+                    </div>
+                    <div class="form-group col-md-12 pr-4 ">
+                        <label class="control-label" for="note"><i>Notes:-</i></label>
+                        <textarea disabled id="note" rows="2" asp-for="Note" readonly class="form-control" placeholder="Your content here.."></textarea>
+                    </div>
+                </div>
+                <div class="panel-footer text-right mt-4">
+                    <a href="/LoanDisbrusement/Index" class="btn btn-success" id="submit" type="button"><i class="fa-solid fa-hand-point-left mr-2"></i>Back</a>
+                    @*<button class="btn btn-success" hidden  type="submit">Submit</button>*@
+                </div>
+                @*</form>*@
+                <!--===================================================-->
+                <!--End Horizontal Form-->
+
+
+            </div>
+            <div class="col-md-4 eq-box-md eq-no-panel">
+                <div class="text-center">
+                    <div class="mt-4">
+                        <h3 class="text-main pad-btm bord-btm">Loanee Informatiom</h3>
+                        <br>
+                    </div>
+                </div>
+                <div class="ml-4">
+                    <div class="d-flex">
+                        <div class="col-sm-4">
+                            <p><strong>Name</strong></p>
+                        </div>
+                        <div class="col-sm-8">
+                            <p data-type="name">-</p>
+                        </div>
+                    </div>
+                    <div class="d-flex">
+                        <div class="col-sm-4">
+                            <p><strong>Phone no.</strong></p>
+                        </div>
+                        <div class="col-sm-8">
+                            <p data-type="contactNo">-</p>
+                        </div>
+                    </div>
+                    <div class="d-flex">
+                        <div class="col-sm-4">
+                            <p><strong>Address</strong></p>
+                        </div>
+                        <div class="col-sm-8">
+                            <p data-type="address">-</p>
+                        </div>
+                    </div>
+                    <div class="d-flex">
+                        <div class="col-sm-4">
+                            <p><strong>Birthday</strong></p>
+                        </div>
+                        <div class="col-sm-8">
+                            <p data-type="birthday">-</p>
+                        </div>
+                    </div>
+                    <div class="d-flex">
+                        <div class="col-sm-4">
+                            <p><strong>Citizenship No.</strong></p>
+                        </div>
+                        <div class="col-sm-8">
+                            <p data-type="citizenship">-</p>
+                        </div>
+                    </div>
+                    <div class="d-flex">
+                        <div class="col-sm-4">
+                            <p><strong>Sanction Amount</strong></p>
+                        </div>
+                        <div class="col-sm-8">
+                            <p data-type="sanction">-</p>
+                        </div>
+                    </div>
+                    <div class="d-flex">
+                        <div class="col-sm-4">
+                            <p><strong>Maturity Date</strong></p>
+                        </div>
+                        <div class="col-sm-8">
+                            <p data-type="maturityDate">-</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="panel">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">Transaction Details</h3>
+                    </div>
+
+                    <!-- Striped Table -->
+                    <!--===================================================-->
+                    <div class="panel-body">
+                        <div class="table-responsive">
+                            <table class="table table-striped">
+                                <thead>
+                                    <tr>
+                                        <th>Installments</th>
+                                        <th>Amount</th>
+                                        <th>Status</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Installment 1</td>
+                                        <td>Rs. -</td>
+                                        <td>-</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Installment 2</td>
+                                        <td>Rs. -</td>
+                                        <td>-</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Installment 3</td>
+                                        <td>Rs. -</td>
+                                        <td>-</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <!--===================================================-->
+                    <!-- End Striped Table -->
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+@section Scripts{
+    <script>
+        loanDisbursement = {
+            reset: function () {
+                $('p[data-type="name"]').text("-");
+                $('p[data-type="address"]').text("-");
+                $('p[data-type="birthday"]').text("-");
+                $('p[data-type="citizenship"]').text("-");
+                $('p[data-type="maturityDate"]').text("-");
+                $('p[data-type="sanction"]').text("-");
+                $('p[data-type="contactNo"]').text("-");
+                $('p[data-type="name"]').text("-");
+                $(".table-installment > tbody > tr").remove();
+                $(".table-installment > tbody").append("<tr><td>Installment 1</td><td>Rs. -</td><td>-</td></tr>");
+                $('#bank').attr('disabled', true);
+                $('#cheque').attr('disabled', true);
+                $('#cheque-date').attr('disabled', true);
+                $('#cheque-amount').attr('disabled', true);
+                $('#ChequeNo').attr('disabled', true);
+                $('#note').attr('disabled', true);
+                $('#cheque-amount').val("0.00");
+                $('input[name="MemberName"]').val('');
+            },
+            load: function () {
+                $.ajax({
+                    url: "/LoanDisbrusement/GetSummary/@Model.MemberId",
+                    type: "get",
+                    contentType: "json",
+                    success: function (response) {
+                        $('p[data-type="name"]').text(response.name);
+                        $('p[data-type="address"]').text(response.address);
+                        $('p[data-type="birthday"]').text(response.birthofDateBS);
+                        $('p[data-type="citizenship"]').text(response.citizenShipNumber);
+                        $('p[data-type="maturityDate"]').text(response.maturityDate);
+                        $('p[data-type="sanction"]').text(response.sanctionAmount);
+                        $('p[data-type="contactNo"]').text(response.contactNo);
+                        $('p[data-type="name"]').text(response.name);
+                    },
+                    error: function () {
+                        reset();
+                    }
+                });
+            },
+            submit: function () {
+                if ($('form').valid()) {
+                    bootbox.confirm("Are you sure, you want to save the record?", function (result) {
+                        if (result) {
+                            $('[type="submit"]').trigger('click');
+                        }
+                    });
+                }},
+            init: function () {
+                //$('form').validate().settings.ignore = [];
+                //$('.select-chosen').chosen();
+                //$("input[name='BankName']").autocomplete();
+            }
+        }
+        $(document).ready(function () {
+            loanDisbursement.load();
+           // loanDisbursement.init();
+        });
+        $(document).on('change', '.installment-checkbox', function () {
+            let amount = 0.00;
+            $(".installment-checkbox:checked").each(function (i, d) {
+                amount = amount + parseFloat($(this).data('amount'));
+            });
+            $('#cheque-amount').val(amount.toFixed(2));
+            $('#total-amount').val(amount.toFixed(2));
+            $('#Amount').val(amount.toFixed(2));
+            //$('form').valid();
+        });
+        $('#sel-member').on('change', function () {
+            var _this = $(this);
+            if (_this.val() == null || _this.val() == "") {
+                loanDisbursement.reset();
+            } else {
+                loanDisbursement.load(_this);
+            }
+        });
+
+    </script>
+}

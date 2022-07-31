@@ -1,0 +1,343 @@
+﻿@model LoanManagement.ViewModel.LoanCollections.LoanCollectionCreateDto
+@inject LoanManagement.Sevices.INepaliDateService _dateService
+@{
+    ViewData["Title"] = "Load Collection";
+}
+<div id="page-head">
+
+    <div id="page-title">
+        <h1 class="page-header text-overflow">Loan Collection</h1>
+    </div>
+    <ol class="breadcrumb">
+        <li><a href="#"><i class="fa-solid fa-house"></i></a></li>
+        <li><a href="/LoanCollection/Index">Loan Collection List</a></li>
+        <li class="active">New</li>
+    </ol>
+
+</div>
+<div id="page-content">
+
+    <div class="card">
+        <div class="eq-height clearfix">
+            <div class="col-md-8 eq-box-md bord-hor">
+
+                <div class="panel-heading">
+                    <h3 class="panel-title">Loan collection form</h3>
+                </div>
+
+                <!--Horizontal Form-->
+                <!--===================================================-->
+                <form class="form-horizontal" asp-controller="LoanCollection" method="post">
+                    <div class="row ml-2 col-md-12">
+                        <div class="form-group col-md-6">
+                            <label class="control-label" asp-for="VoucherDate">Voucher Date</label>
+                            <input placeholder="Enter Disbrusment Date" id="voucher-date" asp-for="VoucherDate" value="@_dateService.GetCurrentNepaliDate()" class="form-control ndate">
+                            @*<div class="row">
+                                    <div class="col-md-5">
+                                        <select class="year custom-select w-100 select-chosen"></select>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <select class="month custom-select w-100 select-chosen"></select>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <select class="day custom-select w-100 select-chosen"></select>
+                                    </div>
+                                </div>*@
+                            <span asp-validation-for="VoucherDate"></span>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label class="control-label" asp-for="MemberId">Member Name</label>
+                            <select asp-items="@ViewBag.Member" asp-for="MemberId" placeholder="Search by name" id="sel-member" class="form-control select-chosen">
+                                <option value="">Search by name</option>
+                            </select>
+                            <span asp-validation-for="MemberId"></span>
+                        </div>
+                        <input asp-for="MemberName" type="hidden" />
+                        <input asp-for="Amount" type="hidden">
+
+                        @*<div class="form-group col-md-6">
+                                <label class="control-label" for="demo-hor-inputpass">Received Amount (Rs.)</label>
+                                <input readonly placeholder="Enter amount collection" value="250000" id="demo-hor-inputpass" class="form-control">
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label class="control-label" for="demo-hor-inputpass">Upto Date Interest</label>
+                                <div class="input-group">
+                                    <input placeholder="Interest" readonly value="0.00" class="form-control">
+                                    <span class="input-group-addon p-1">6.00%</span>
+                                </div>
+                            </div>*@
+                        <div class="row col-md-12">
+                            <div class="panel-heading col-md-12">
+                                <h3 class="panel-title">Allocate Amount</h3>
+                            </div>
+                            <div class="table-responsive">
+                                <table class="table table-bordered">
+                                    <thead>
+                                        <tr>
+                                            <th>Perticulars</th>
+                                            <th>Amount (Rs.)</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>Interest Amount</td>
+                                            <td>
+                                                <input step="0.01" class="form-control amount" asp-for="InterestAmount" disabled type="text" id="interest" value="0.00">
+                                                <span class="text-danger field-validation-valid" data-valmsg-for="Installment1" data-valmsg-replace="true"></span>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Principal Amount</td>
+                                            <td>
+                                                <input step="0.01" class="form-control amount" asp-for="PrincipalAmount" disabled type="text" id="principal" value="0.00">
+                                                <span class="text-danger field-validation-valid" data-valmsg-for="Installment2" data-valmsg-replace="true"></span>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Penalty</td>
+                                            <td>
+                                                <input step="0.01" class="form-control amount" asp-for="PenaltyAmount" disabled type="text" id="penalty" value="0.00">
+                                                <span class="text-danger field-validation-valid" data-valmsg-for="Installment3" data-valmsg-replace="true"></span>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td><div class="float-right strong">Total</div> </td>
+                                            <td>
+                                                <span id="total-amount">Rs. 0</span><br />
+                                                <span asp-validation-for="Amount"></span>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+
+                                </table>
+
+                            </div>
+                        </div>
+
+                        <!--<div class="form-group col-md-12">
+                        <label for="FirstName">Payment Detail<span class="text-danger pl-1" title="Required field">*</span></label>
+                        <div class="col-md-12">
+                            <div class="radio custom-control custom-radio custom-control-inline">
+                                <input disabled id="radio-bank" class="magic-radio" checked type="radio">
+                                <label for="radio-bank">By bank</label>
+                            </div>-->
+                        <!-- Radio Buttons -->
+                        <!--<div class="radio custom-control custom-radio custom-control-inline">
+                                    <input id="radio-cash" disabled type="radio" class="magic-radio">
+                                    <label for="radio-cash">Cash</label>
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label asp-for="BankName">Bank Name<span class="text-danger pl-1" title="Required field">*</span></label>
+                            <input disabled data-prefetch="/LoanDisbrusment/GetBankList" autocomplete="off" placeholder="Enter Bank Name" autocomplete="off" class="form-control" type="text" id="bank" asp-for="BankName">
+                            <span asp-validation-for="BankName"></span>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label asp-for="ChequeDate">Chaque Date<span class="text-danger" title="Required field">*</span></label>
+                            <input disabled placeholder="Enter Chaque Date" class="form-control" id="cheque-date" asp-for="ChequeDate">
+                            <span asp-validation-for="ChequeDate"></span>
+                        </div>
+
+                        <div class="form-group col-md-6">
+                            <label asp-for="ChequeNo">Cheque No.<span class="text-danger pl-1" title="Required field">*</span></label>
+                            <input disabled placeholder="Enter Cheque Number" class="form-control" asp-for="ChequeNo">
+                            <span asp-validation-for="ChequeNo"></span>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label asp-for="ChequeAmount">Cheque Amount</label>
+                            <input disabled placeholder="Rs. 0.00" class="form-control" type="text" id="cheque-amount" asp-for="ChequeAmount">
+                            <span asp-validation-for="ChequeAmount"></span>
+                        </div>-->
+                    </div>
+                    <div class="row ml-2 col-md-12">
+                        <div class="form-group col-md-12">
+                            <label class="control-label" for="demo-textarea-input"><i>Notes:-</i></label>
+                            <textarea id="note" asp-for="Note" disabled rows="2" class="form-control" placeholder="Your content here.."></textarea>
+                        </div>
+                    </div>
+
+                    <div class="panel-footer text-right mt-4">
+                        <button class="btn btn-success" type="submit">Submit</button>
+                    </div>
+                </form>
+                <!--===================================================-->
+                <!--End Horizontal Form-->
+
+
+            </div>
+            <div class="col-md-4 eq-box-md eq-no-panel">
+                <div class="text-center">
+                    <div class="mt-4">
+                        <h3 class="text-main pad-btm bord-btm">Loanee Informatiom</h3>
+                        <br>
+                    </div>
+                </div>
+                <div class="ml-4">
+                    <div class="d-flex">
+                        <div class="col-sm-4">
+                            <p><strong>Name</strong></p>
+                        </div>
+                        <div class="col-sm-8">
+                            <p data-type="name">-</p>
+                        </div>
+                    </div>
+                    <div class="d-flex">
+                        <div class="col-sm-4">
+                            <p><strong>Phone no.</strong></p>
+                        </div>
+                        <div class="col-sm-8">
+                            <p data-type="contactNo">-</p>
+                        </div>
+                    </div>
+                    <div class="d-flex">
+                        <div class="col-sm-4">
+                            <p><strong>Address</strong></p>
+                        </div>
+                        <div class="col-sm-8">
+                            <p data-type="address">-</p>
+                        </div>
+                    </div>
+                    <div class="d-flex">
+                        <div class="col-sm-4">
+                            <p><strong>Birthday</strong></p>
+                        </div>
+                        <div class="col-sm-8">
+                            <p data-type="birthday">-</p>
+                        </div>
+                    </div>
+                    <div class="d-flex">
+                        <div class="col-sm-4">
+                            <p><strong>Citizenship No.</strong></p>
+                        </div>
+                        <div class="col-sm-8">
+                            <p data-type="citizenship">-</p>
+                        </div>
+                    </div>
+                    <div class="d-flex">
+                        <div class="col-sm-4">
+                            <p><strong>Sanction Amount</strong></p>
+                        </div>
+                        <div class="col-sm-8">
+                            <p data-type="sanction">-</p>
+                        </div>
+                    </div>
+                    <div class="d-flex">
+                        <div class="col-sm-4">
+                            <p><strong>Maturity Date</strong></p>
+                        </div>
+                        <div class="col-sm-8">
+                            <p data-type="maturityDate">-</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="panel">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">Transaction Details</h3>
+                    </div>
+
+                    <!-- Striped Table -->
+                    <!--===================================================-->
+                    <div class="panel-body">
+                        <div class="table-responsive">
+                            <table class="table table-striped">
+                                <thead>
+                                    <tr>
+                                        <th>Installments</th>
+                                        <th>Amount</th>
+                                        <th>Status</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Installment 1</td>
+                                        <td>Rs. -</td>
+                                        <td>-</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Installment 2</td>
+                                        <td>Rs. -</td>
+                                        <td>-</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Installment 3</td>
+                                        <td>Rs. -</td>
+                                        <td>-</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <!--===================================================-->
+                    <!-- End Striped Table -->
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts{
+    <script src="~/js/nepalicalendar.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('form').validate().settings.ignore = [];
+            $('.select-chosen').chosen();
+        });
+        $(document).on('change', '.amount', function () {
+            let amount = 0;
+            $('.amount').each(function (i, d) {
+                amount = amount + parseFloat($(this).val());
+            });
+            $("input[name='Amount']").val(amount);
+            $('#total-amount').text("Rs." + amount);
+        });
+
+        $('#sel-member').on('change', function () {
+            var _this = $(this);
+            if (_this.val() == null || _this.val() == "") {
+                reset();
+            } else {
+                $.ajax({
+                    url: "/LoanDisbrusement/GetSummary/" + _this.val(),
+                    type: "get",
+                    contentType: "json",
+                    success: function (response) {
+                        $('p[data-type="name"]').text(response.name);
+                        $('p[data-type="address"]').text(response.address);
+                        $('p[data-type="birthday"]').text(response.birthofDateBS);
+                        $('p[data-type="citizenship"]').text(response.citizenShipNumber);
+                        $('p[data-type="maturityDate"]').text(response.maturityDate);
+                        $('p[data-type="sanction"]').text(response.sanctionAmount);
+                        $('p[data-type="contactNo"]').text(response.contactNo);
+                        $('p[data-type="name"]').text(response.name);
+
+                        $('#interest').attr('disabled', false);
+                        $('#principal').attr('disabled', false);
+                        $('#penalty').attr('disabled', false);
+                        $('#note').attr('disabled', false);
+                    },
+                    error: function () {
+                        reset();
+                    }
+                });
+            }
+        });
+
+        function reset() {
+            $('p[data-type="name"]').text("-");
+            $('p[data-type="address"]').text("-");
+            $('p[data-type="birthday"]').text("-");
+            $('p[data-type="citizenship"]').text("-");
+            $('p[data-type="maturityDate"]').text("-");
+            $('p[data-type="sanction"]').text("-");
+            $('p[data-type="contactNo"]').text("-");
+            $('p[data-type="name"]').text("-");
+            $('#note').attr('disabled', true);
+            $('#interest').attr('disabled', true);
+            $('#principal').attr('disabled', true);
+            $('#penalty').attr('disabled', true);
+        }
+    </script>
+}

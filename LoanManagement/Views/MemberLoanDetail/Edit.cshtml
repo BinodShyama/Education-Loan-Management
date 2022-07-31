@@ -1,0 +1,194 @@
+﻿@model LoanManagement.ViewModel.Members.MemberLoanDetailDto
+@inject LoanManagement.Sevices.ISelectListService listService
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<div id="page-head">
+
+    <div id="page-title">
+        <h1 class="page-header text-overflow">Create Loan Contract</h1>
+    </div>
+    <ol class="breadcrumb">
+        <li><a href="#"><i class="fa-solid fa-house"></i></a></li>
+        <li><a href="/Member/Index">Member List</a></li>
+        <li class="active">Loan Detail</li>
+    </ol>
+
+</div>
+<div id="page-content">
+    <div class="card">
+        <div class="panel-heading">
+            <p class="panel-title">Edit Loan Contract (<span style="color:blue;font-weight:bold">@ViewBag.Name</span>)</p>
+        </div>
+        <div class="panel-body">
+            <div class="panel-body">
+                <form asp-action="Create">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <div class="row col-md-12 pt-4">
+                        <div class="panel-heading row col-md-12">
+                            <h3 class="panel-title">Security Detials (Personal Guarantee)</h3>
+                        </div>
+                        <input asp-for="Id" type="hidden" />
+                        <input asp-for="MemberId" type="hidden" value="@ViewBag.Id">
+                        <input asp-for="LoanAccountNo" type="hidden">
+                        <div class="form-group col-md-4">
+                            <label>Full Name<span class="text-danger pl-1" title="Required field">*</span></label>
+                            <input asp-for="LoanGuarantorName" placeholder="Enter Full Name" class="form-control">
+                            <span asp-validation-for="LoanGuarantorName"></span>
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label asp-for="LoanGuarantorRelationship">Relationship</label>
+                            <select asp-for="LoanGuarantorRelationship" class="custom-select w-100 select-chosen" asp-items="@listService.GetRelationshipList()" required="">
+                                <option value="">Choose relationship</option>
+                            </select>
+                            <span asp-validation-for="LoanGuarantorRelationship"></span>
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label asp-for="LoanGuarantorContactNo">Contact no.<span class="text-danger pl-1" title="Required field">*</span></label>
+                            <input placeholder="Enter contact no" asp-for="LoanGuarantorContactNo" class="form-control">
+                            <span asp-validation-for="LoanGuarantorContactNo"></span>
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label asp-for="LoanGuarantorCitizenshipNo">Citizenship Number<span class="text-danger pl-1" title="Required field">*</span></label>
+                            <input placeholder="Enter Citizenship No." asp-for="LoanGuarantorCitizenshipNo" class="form-control">
+                            <span asp-validation-for="LoanGuarantorCitizenshipNo"></span>
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label asp-for="LoanGuarantorCitizenshipIssueDistrict">Citizenship Issued District<span class="text-danger" title="Required field">*</span></label>
+                            <select asp-for="LoanGuarantorCitizenshipIssueDistrict" class="custom-select w-100 select-chosen" asp-items="@listService.GetDistrictList().Result" required="">
+                                <option value="">Choose District</option>
+                            </select>
+                            <span asp-validation-for="LoanGuarantorCitizenshipIssueDistrict"></span>
+                        </div>
+                    </div>
+
+                    <div class="row col-md-12">
+                        <div class="panel-heading row col-md-12">
+                            <h3 class="panel-title">Detials of Course Study</h3>
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label asp-for="Degree" class="control-label">Degree<span class="text-danger pl-1" title="Required field">*</span></label>
+                            <input asp-for="Degree" placeholder="Enter Degree" class="form-control" />
+                            <span asp-validation-for="Degree" class="text-danger"></span>
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label asp-for="Institution" class="control-label">Institution<span class="text-danger pl-1" title="Required field">*</span></label>
+                            <input asp-for="Institution" placeholder="Enter institution" class="form-control" />
+                            <span asp-validation-for="Institution" class="text-danger"></span>
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label asp-for="University" class="control-label">University<span class="text-danger pl-1" title="Required field">*</span></label>
+                            <input asp-for="University" placeholder="Enter university" class="form-control" />
+                            <span asp-validation-for="University" class="text-danger"></span>
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label asp-for="Country" class="control-label">Country<span class="text-danger pl-1" title="Required field">*</span></label>
+                            <input asp-for="Country" placeholder="Enter country" value="Nepal" class="form-control" />
+                            <span asp-validation-for="Country" class="text-danger"></span>
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label asp-for="Duration" class="control-label">Duration of Course(in years)<span class="text-danger pl-1" title="Required field">*</span></label>
+                            <input asp-for="Duration" placeholder="Enter duration" class="form-control" />
+                            <span asp-validation-for="Duration" class="text-danger"></span>
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label asp-for="DateOfCommencementNep" class="control-label">Date of commencement(B.S.)<span class="text-danger pl-1" title="Required field">*</span></label>
+                            <input asp-for="DateOfCommencementNep" placeholder="Enter date of commencement(yyyy-mm-dd)" class="form-control ndate" />
+                            <input asp-for="DateOfCommencement" type="hidden" id="date-comm" class="form-control" />
+                            <span asp-validation-for="DateOfCommencementNep" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="row col-md-12">
+                        <div class="panel-heading row col-md-12">
+                            <h3 class="panel-title">Amount of Loan Applied</h3>
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label asp-for="LoanAmount" class="control-label">Amount<span class="text-danger pl-1" title="Required field">*</span></label>
+                            <input asp-for="LoanAmount" step="0.01" class="form-control" id="LoanAmount" />
+                            <span asp-validation-for="LoanAmount" class="text-danger"></span>
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label asp-for="LoanMaturityDateNep" class="control-label">Maturity date(B.S.)<span class="text-danger pl-1" title="Required field">*</span></label>
+                            <input asp-for="LoanMaturityDateNep" placeholder="yyyy-mm-dd" readonly class="form-control" id="maturity-date" />
+                            <input asp-for="LoanMaturityDate" type="hidden" class="form-control" id="maturity-date-eng" />
+                        </div>
+                        <div class="row col-md-12">
+                            <div class="table-responsive ml-3">
+                                <table class="table table-bordered">
+                                    <thead>
+                                        <tr>
+                                            <th>Installment No.</th>
+                                            <th>Amount</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>Installment 1</td>
+                                            <td>
+                                                <input asp-for="Installment1" step="0.01" class="form-control install" />
+                                                <span asp-validation-for="Installment1" class="text-danger"></span>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Installment 2</td>
+                                            <td>
+                                                <input asp-for="Installment2" step="0.01" class="form-control install" />
+                                                <span asp-validation-for="Installment2" class="text-danger"></span>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Installment 3</td>
+                                            <td>
+                                                <input asp-for="Installment3" step="0.01" class="form-control install" />
+                                                <span asp-validation-for="Installment3" class="text-danger"></span>
+                                            </td>
+                                        </tr>
+
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group panel-footer">
+                        <input type="button" value="Update" onclick="memberLoan.submit()" class="btn btn-primary" />
+                    </div>
+                </form>
+            </div>
+        </div>
+
+
+    </div>
+</div>
+
+
+@section Scripts {
+    <script src="~/js/nepalicalendar.js"></script>
+    <script src="~/js/LoanManagement.MemberLoan.js"></script>
+    <script>
+        $(document).ready(function () {
+            memberLoan.init();
+        });
+        $('.install').on('keyup', function () {
+            $('#LoanAmount').val(memberLoan.sumInstallment());
+        });
+
+        $('#LoanAmount').on('keyup', function () {
+            if ($(this).val().trim() == '') {
+                $('input[name="Installment1"]').val(0);
+                $('input[name="Installment2"]').val(0);
+                $('input[name="Installment3"]').val(0);
+                return;
+            }
+            var a = parseFloat($(this).val());
+            if (!isNaN(a)) {
+                $('input[name="Installment1"]').val(0.30 * a);
+                $('input[name="Installment2"]').val(0.30 * a);
+                $('input[name="Installment3"]').val(0.40 * a);
+            }
+        });
+        $('input[name="Duration"], input[name="DateOfCommencementNep"]').on('change', function () {
+            $('input[name="LoanMaturityDateNep"]').val(memberLoan.matureDate());
+        });
+    </script>
+}

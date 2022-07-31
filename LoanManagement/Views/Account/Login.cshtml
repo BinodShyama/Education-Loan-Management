@@ -1,0 +1,71 @@
+﻿@{
+    ViewData["Title"] = "Login - Education Loan Management";
+    Layout = null;
+}
+@model LoanManagement.ViewModel.Account.LoginDto
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700' rel='stylesheet' type='text/css'>
+
+    <!--Bootstrap Stylesheet [ REQUIRED ]-->
+    <link href="~/lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="~/lib/nifty/dist/css/nifty.css" rel="stylesheet" />
+    <link href="~/lib/toastr.js/toastr.min.css" rel="stylesheet" />
+</head>
+
+<body>
+
+
+    <div id="container" class="cls-container">
+
+        <!-- BACKGROUND IMAGE -->
+        <!--===================================================-->
+        <div id="bg-overlay"></div>
+
+
+        <!-- LOGIN FORM -->
+        <!--===================================================-->
+        <div class="cls-content">
+            <div class="cls-content-sm panel">
+                <div class="panel-body">
+                    <div class="mar-ver pad-btm">
+                        <h1 class="h3">Account Login</h1>
+                        <p>Sign In to your account</p>
+                    </div>
+                    <form method="post" asp-controller="Account" asp-action="Login">
+                        <div class="form-group">
+                            <input type="text" class="form-control" asp-for="UserName" placeholder="Username" autofocus>
+                        </div>
+                        <div class="form-group">
+                            <input type="password" class="form-control" asp-for="Password" placeholder="Password">
+                        </div>
+                        <div class="checkbox pad-btm text-left">
+                            <input id="demo-form-checkbox" asp-for="RememberMe" class="magic-checkbox" type="checkbox">
+                            <label for="demo-form-checkbox">Remember me</label>
+                        </div>
+                        <button class="btn btn-primary btn-lg btn-block" type="submit">Sign In</button>
+                    </form>
+                </div>
+
+                <div class="pad-all">
+                    <button href="#" disabled class="btn-link mar-rgt">Forgot password ?</button>
+                    <button href="#" disabled class="btn-link mar-lft">Create a new account</button>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/lib/nifty/dist/js/nifty.min.js"></script>
+    <partial name="_ValidationScriptsPartial" />
+</body>
+
+
+</html>

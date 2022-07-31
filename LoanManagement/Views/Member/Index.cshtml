@@ -1,0 +1,93 @@
+﻿@{
+    ViewData["Title"] = "Memeber List";
+}
+@inject LoanManagement.Sevices.ISelectListService _list
+<div id="page-head">
+
+    <div id="page-title">
+        <h1 class="page-header text-overflow">Memeber Details</h1>
+    </div>
+    <ol class="breadcrumb">
+        <li><a href="#"><i class="fa-solid fa-house"></i></a></li>
+        <li class="active">Memeber Lists</li>
+    </ol>
+
+</div>
+
+<div id="page-content">
+    <div class="card">
+        <div class="panel-heading">
+            <h3 class="panel-title">Lists of Members</h3>
+        </div>
+        <div class="panel-body">
+            <div class="pad-btm form-inline">
+                <div class="row">
+                    <div class="col-sm-12 table-toolbar-left">
+                        <a href="/Member/Create" class="btn btn-purple"><i class="fa-solid fa-plus"></i> Add Member</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card mb-1">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Filter Parameters</h3>
+                </div>
+                <div class="d-flex justify-content-between">
+                    <div class="row col-md-12">
+                        <div class="col-md-2 form-group">
+                            <label>Gender</label>
+                            <select id="gender" class="custom-select state w-100 select-chosen">
+                                <option value="">Select Gender....</option>
+                                <option value="Male">Male</option>
+                                <option value="Female">Female</option>
+                                <option value="Other">Other</option>
+                            </select>
+                        </div>
+                        <div class="col-md-2 form-group">
+                            <label>Ward no.</label>
+                            <select id="ward" asp-items="@await _list.GetWardList()" class="custom-select state w-100 select-chosen">
+                                <option value="">Select Ward....</option>
+                            </select>
+                        </div>
+                        <div class="col-md-2 form-group">
+                            <label>Degree</label>
+                            <select id="degree" asp-items="@await _list.GetDegreeList()" class="custom-select state w-100 select-chosen">
+                                <option value="">Select Degree....</option>
+                              
+                            </select>
+                        </div>
+                        <div class="col-md-3 form-group">
+                            <label for="institution">Institution....</label>
+                            <select id="institution" asp-items="@await _list.GetInstitutionList()" class="custom-select state w-100 select-chosen">
+                                <option value="">Select Institution</option>
+                            </select>
+                        </div>
+                        <div class="col-md-3 form-group">
+                            <label>University</label>
+                            <div class="d-flex justify-content-end">
+                                <select id="university" asp-items="@await _list.GetUniversityList()" class="custom-select state w-100 select-chosen">
+                                    <option value="">Select University....</option>
+                                </select>
+                                <span class="input-group-btn ml-2">
+                                    <button class="btn btn-mint" type="button" onclick="Member.dataTableFilter()"><i class="fa-solid fa-magnifying-glass"></i></button>
+                                </span>
+                                <span class="input-group-btn ml-2">
+                                    <button class="btn btn-warning" type="button" onclick="Member.dataTableClearFilter()"><i class="fa-solid fa-broom"></i></button>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <div class="mt-4">
+                <table id="member-dt" class="table nowrap table-striped table-bordered" cellspacing="0" width="auto"></table>
+            </div>
+        </div>
+
+    </div>
+</div>
+</div>
+@section Scripts{
+    <script src="~/js/LoanManagement.MemberList.js"></script>
+}

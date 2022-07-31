@@ -1,0 +1,238 @@
+﻿@using Newtonsoft.Json
+@model LoanManagement.ViewModel.Members.MemberDetailDto
+<div id="page-head">
+
+    <div id="page-title">
+        <h1 class="page-header text-overflow">Memeber Details</h1>
+    </div>
+    <ol class="breadcrumb">
+        <li><a href="#"><i class="fa-solid fa-house"></i></a></li>
+        <li><a href="/Member/Index">Member List</a></li>
+        <li class="active">Member Detail</li>
+    </ol>
+
+</div>
+<div id="page-content">
+    <div class="card">
+        <div class="panel-heading">
+            <h3 class="panel-title">@Model.FirstName @Model.MiddleName @Model.LastName</h3>
+        </div>
+        <div class="panel-body">
+            <div class="panel-body">
+
+                <!-- Inline Form  -->
+                <!--===================================================-->
+                <form class="form-row" method="post" action="/member/edit/@Model.Id">
+                    <input readOnly asp-for="Country" hidden class="form-control">
+                    <div class="row col-md-12">
+                        <div class="panel-heading row col-md-12">
+                            <h3 class="panel-title">Personal Information</h3>
+                        </div>
+                        <input hidden asp-for="Id" />
+                        <input hidden asp-for="MemberId" />
+                        <div class="form-group col-md-4">
+                            <label asp-for="FirstName">First Name<span class="text-danger pl-1" title="Required field">*</span></label>
+                            <input readOnly placeholder="Enter First Name" asp-for="FirstName" class="form-control">
+                            <span asp-validation-for="FirstName"></span>
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label asp-for="MiddleName">Middle Name(Optional)</label>
+                            <input readOnly placeholder="Enter Middle Name" asp-for="MiddleName" class="form-control">
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label asp-for="LastName">Last Name<span class="text-danger" title="Required field">*</span></label>
+                            <input readOnly placeholder="Enter Last Name" asp-for="LastName" class="form-control">
+                            <span asp-validation-for="LastName"></span>
+                        </div>
+
+                        <div class="form-group col-md-4">
+                            <label asp-for="FirstName">Gender<span class="text-danger pl-1" title="Required field">*</span></label>
+                            <div class="col-md-9">
+
+                                <!-- Radio Buttons -->
+                                <div class="radio custom-control custom-radio custom-control-inline">
+                                    <input disabled readOnly id="demo-form-radio" asp-for="Gender" class="magic-radio" value="Male" type="radio" checked>
+                                    <label for="demo-form-radio">Male</label>
+                                </div>
+                                <div class="radio custom-control custom-radio custom-control-inline">
+                                    <input disabled readOnly id="demo-form-radio-2" class="magic-radio" value="Female" type="radio" asp-for="Gender">
+                                    <label for="demo-form-radio-2">Female</label>
+                                </div>
+                                <div class="radio custom-control custom-radio custom-control-inline">
+                                    <input disabled readOnly id="demo-form-radio-3" class="magic-radio" value="Other" type="radio" asp-for="Gender">
+                                    <label for="demo-form-radio-3">Other</label>
+                                </div>
+                                <span asp-validation-for="Gender"></span>
+                            </div>
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label asp-for="BirthofDateBS">Date of Birth(B.S.)</label>
+                            <input readOnly placeholder="Date Of Birth" asp-for="BirthofDateBS" class="form-control">
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label asp-for="NationalIdentiryCardNumber">National Identity Card Number(NIC) (Optional)</label>
+                            <input readOnly placeholder="Enter National Identity Card Number" asp-for="NationalIdentiryCardNumber" class="form-control">
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label asp-for="CitizenShipNumber">Citizenship Number<span class="text-danger pl-1" title="Required field">*</span></label>
+                            <input readOnly placeholder="Enter Citizenship Number" asp-for="CitizenShipNumber" class="form-control">
+                            <span asp-validation-for="CitizenShipNumber"></span>
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label asp-for="CitizenIssuedDateBS">Citizenship Issued Date(B.S.)<span class="text-danger pl-1" title="Required field">*</span></label>
+                            <input readOnly placeholder="Enter Citizen Issued Date" asp-for="CitizenIssuedDateBS" class="form-control">
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label asp-for="CitizenIssuedDistrict">Citizenship Issued District<span class="text-danger" title="Required field">*</span></label>
+                            <select disabled asp-for="CitizenIssuedDistrict" class="custom-select w-100 select-chosen" asp-items="@ViewBag.District" required="">
+                                <option value="">Choose District</option>
+                            </select>
+                            @*<input readOnly placeholder="Enter Citizen Issued District" asp-for="CitizenIssuedDistrict" class="form-control">*@
+                            <span asp-validation-for="CitizenIssuedDistrict"></span>
+                        </div>
+                    </div>
+                    <div class="row col-md-12 pt-4">
+                        <div class="panel-heading row">
+                            <h3 class="panel-title">Contact Information</h3>
+                        </div>
+                        <div class="row col-md-12">
+                            <div class="form-group col-md-4">
+                                <label asp-for="MobileNumber">Mobile Number<span class="text-danger pl-1" title="Required field">*</span></label>
+                                <input readOnly placeholder="Enter Mobile Number" asp-for="MobileNumber" class="form-control">
+                                <span asp-validation-for="MobileNumber"></span>
+                            </div>
+                            <div class="form-group col-md-4">
+                                <label asp-for="Email">Email Address(Optional)</label>
+                                <input readOnly placeholder="Enter Email Address" asp-for="Email" class="form-control">
+                                <span asp-validation-for="Email"></span>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="row col-md-12 pt-4">
+                        <div class="panel-heading row col-md-12">
+                            <h3 class="panel-title">Parmanent Address</h3>
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label asp-for="PermanentState">State<span class="text-danger pl-1" title="Required field">*</span></label>
+                            <select disabled child-for="per-dis" asp-for="PermanentState" class="custom-select state w-100 select-chosen" asp-items="@ViewBag.Provience" required="">
+                                <option value="">Choose State</option>
+                            </select>
+                            <span asp-validation-for="PermanentState"></span>
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label asp-for="PermanentDistrict">District<span class="text-danger pl-1" title="Required field">*</span></label>
+                            <select disabled id="per-dis" asp-for="PermanentDistrict" value="3" class="custom-select  w-100 select-chosen" asp-items="@ViewBag.DistrictByProvience" required="">
+                                <option value="">Choose District</option>
+                            </select>
+                            <span asp-validation-for="PermanentDistrict"></span>
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label asp-for="PermanentMunicipality">Gaupalika / Nagarpalika<span class="text-danger pl-1" title="Required field">*</span></label>
+                            <input readOnly placeholder="Enter Gaupalika / Nagarpalika" value="Bhaktapur" asp-for="PermanentMunicipality" class="form-control">
+                            <span asp-validation-for="PermanentMunicipality"></span>
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label asp-for="PermanentWardNumber">Ward No.<span class="text-danger" title="Required field">*</span></label>
+                            <input readOnly placeholder="Enter Permanent Ward No" asp-for="PermanentWardNumber" class="form-control">
+                            <span asp-validation-for="PermanentWardNumber"></span>
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label asp-for="PermanentStreet">Street/Tole<span class="text-danger" title="Required field">*</span></label>
+                            <input readOnly placeholder="Enter Permanent Street" asp-for="PermanentStreet" class="form-control">
+                            <span asp-validation-for="PermanentStreet"></span>
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label asp-for="ParmanentHouseNo">House no.</label>
+                            <input readOnly placeholder="Enter house no." asp-for="ParmanentHouseNo" class="form-control">
+                            <span asp-validation-for="ParmanentHouseNo"></span>
+                        </div>
+                    </div>
+                    <div class="row col-md-12 pt-4">
+                        <div class="panel-heading row col-md-12">
+                            <h3 class="panel-title">Temporary Address</h3>
+                            <button disabled class="btn btn-copy" type="button" title="Copy same as permanent address."><i class="fas fa-copy"></i></button>
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label asp-for="TemporaryState">State<span class="text-danger pl-1" title="Required field">*</span></label>
+                            <select disabled asp-for="TemporaryState" child-for="temp-dis" class="custom-select state w-100 select-chosen" asp-items="@ViewBag.Provience" required="">
+                                <option value="">Choose State</option>
+                            </select>
+                            <span asp-validation-for="TemporaryState"></span>
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label asp-for="TemporaryDistrict">District<span class="text-danger pl-1" title="Required field">*</span></label>
+                            <select disabled asp-for="TemporaryDistrict" value="3" class="custom-select w-100 select-chosen" id="temp-dis" asp-items="@ViewBag.DistrictByProvience" required="">
+                                <option value="">Choose District</option>
+                            </select>
+                            <span asp-validation-for="TemporaryDistrict"></span>
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label asp-for="TemporaryMunicipality">Gaupalika / Nagarpalika<span class="text-danger pl-1" title="Required field">*</span></label>
+                            <input readOnly placeholder="Enter Gaupalika / Nagarpalika" value="Bhaktapur" asp-for="TemporaryMunicipality" class="form-control">
+                            <span asp-validation-for="TemporaryMunicipality"></span>
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label asp-for="TemporaryWardNumber">Ward No.<span class="text-danger" title="Required field">*</span></label>
+                            <input readOnly placeholder="Enter Temporary Ward No" asp-for="TemporaryWardNumber" class="form-control">
+                            <span asp-validation-for="TemporaryWardNumber"></span>
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label asp-for="TemporaryStreet">Street/Tole<span class="text-danger" title="Required field">*</span></label>
+                            <input readOnly placeholder="Enter Temporary Street" asp-for="TemporaryStreet" class="form-control">
+                            <span asp-validation-for="TemporaryStreet"></span>
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label asp-for="TemporaryHouseNo">House no.</label>
+                            <input readOnly placeholder="Enter house no." asp-for="TemporaryHouseNo" class="form-control">
+                            <span asp-validation-for="TemporaryHouseNo"></span>
+                        </div>
+                    </div>
+                    <div class="row col-md-12 pt-4">
+                        <div class="panel-heading row col-md-12">
+                            <h3 class="panel-title">Parent Information</h3>
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label asp-for="FatherFullName">Father Full Name<span class="text-danger pl-1" title="Required field">*</span></label>
+                            <input readOnly placeholder="Enter Father Full Name" asp-for="FatherFullName" class="form-control">
+                            <span asp-validation-for="FatherFullName"></span>
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label asp-for="MotherFullName">Mother Full Name</label>
+                            <input readOnly placeholder="Enter Mother Full Name" asp-for="MotherFullName" class="form-control">
+                            <span asp-validation-for="MotherFullName"></span>
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label asp-for="GrandFatherFullName">Grand Father Full Name<span class="text-danger pl-1" title="Required field">*</span></label>
+                            <input readOnly placeholder="Enter Grand Father Full Name" asp-for="GrandFatherFullName" class="form-control">
+                            <span asp-validation-for="GrandFatherFullName"></span>
+                        </div>
+                        <div class="form-group col-md-4 d-none">
+                            <label asp-for="SpouseFullName">Spouse Full Name.(optional)</label>
+                            <input readOnly placeholder="Enter Spouse Full Name" asp-for="SpouseFullName" class="form-control">
+                        </div>
+                    </div>
+                    <div class="panel-footer clearfix mt-4">
+                        <div class="row pl-2">
+                            <div class="col-sm-offset-3">
+                                <button class="btn btn-primary btn-edit" type="button">Edit</button>
+                            </div>
+                            <div class="col-sm-offset-3">
+                                <button hidden class="btn btn-primary btn-submit" type="submit">Save and Close</button>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+                <!--===================================================-->
+                <!-- End Inline Form  -->
+
+            </div>
+        </div>
+    </div>
+</div>
+@section Scripts{
+    <script src="~/js/LoanManagement.Member.js"></script>
+    <script>
+        var dis=JSON.parse('@Html.Raw(@JsonConvert.SerializeObject(ViewBag.Dis))');
+    </script>
+}

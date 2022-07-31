@@ -1,0 +1,77 @@
+﻿@model LoanManagement.ViewModel.Account.RegisterDto
+@{
+    ViewData["Title"] = "Register";
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700' rel='stylesheet' type='text/css'>
+
+    <!--Bootstrap Stylesheet [ REQUIRED ]-->
+    <link href="~/lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="~/lib/nifty/dist/css/nifty.css" rel="stylesheet" />
+    <link href="~/lib/toastr.js/toastr.min.css" rel="stylesheet" />
+</head>
+
+
+<body>
+    <div id="container" class="cls-container">
+
+
+        <!-- BACKGROUND IMAGE -->
+        <!--===================================================-->
+        <div id="bg-overlay"></div>
+
+
+        <!-- REGISTRATION FORM -->
+        <!--===================================================-->
+        <div class="cls-content">
+            <div class="cls-content-lg panel">
+                <div class="panel-body">
+                    <div class="mar-ver pad-btm">
+                        <h1 class="h3">Create a New Account</h1>
+                        <p>Let's set up your account.</p>
+                    </div>
+                    <form action="post">
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <input type="text" class="form-control" placeholder="Full name" name="name">
+                                </div>
+                                <div class="form-group">
+                                    <input type="text" class="form-control" placeholder="E-mail" name="email">
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <input type="text" class="form-control" placeholder="Username" name="username">
+                                </div>
+                                <div class="form-group">
+                                    <input type="password" class="form-control" placeholder="Password" name="password">
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <button class="btn btn-primary btn-lg btn-block" type="submit">Register</button>
+                    </form>
+                </div>
+                <div class="pad-all">
+                    Already have an account ? <a href="/admin/login" class="btn-link mar-rgt text-bold">Sign In</a>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/lib/nifty/dist/js/nifty.min.js"></script>
+    <partial name="_ValidationScriptsPartial" />
+</body>
+</html>

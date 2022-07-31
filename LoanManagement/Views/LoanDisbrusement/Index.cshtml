@@ -1,0 +1,94 @@
+﻿@{
+    ViewData["Title"] = "Loan Disbrusment";
+}
+
+<div id="page-head">
+
+    <div id="page-title">
+        <h1 class="page-header text-overflow">Loan Disbrusment</h1>
+    </div>
+    <ol class="breadcrumb">
+        <li><a href="#"><i class="fa-solid fa-house"></i></a></li>
+        <li class="active">Loan Disbrusement List</li>
+    </ol>
+
+</div>
+
+<div id="page-content">
+    <div class="card">
+        <div class="panel-heading">
+            <h3 class="panel-title">List of Transactions</h3>
+        </div>
+        <div class="panel-body">
+            <div class="pad-btm form-inline">
+                <div class="row">
+                    <div class="col-sm-12 table-toolbar-left">
+                        <a href="/Loandisbrusement/Create" class="btn btn-purple"><i class="fa-solid fa-plus"></i> New</a>
+                    </div>
+                </div>
+            </div>
+            <table id="tbl-dis" class="table nowrap table-striped table-bordered" cellspacing="0" width="auto"></table>
+        </div>
+    </div>
+</div>
+@section Scripts{
+    <script>
+        var table = {};
+        var loanDisbursement = {
+            loadTable: function () {
+                table = $('#tbl-dis').DataTable({
+                    processing: true,
+                    responsive: true,
+                    type: "GET",
+                    scrollX: true,
+                    columns: [
+                        { "title": "Voucher No.", "data": "voucherNo" },
+                        {
+                            "title": "Date",
+                            "data": {
+                                "sort": "voucherDate",
+                                "display": "voucherDateNep"
+
+                            }
+                        },
+                        { "title": "Name", "data": "name" },
+                        { "title": "Amount", "data": "amount" },
+                        { "title": "Bank", "data": "bank" },
+                        { "title": "Cheque No", "data": "chequeNo" },
+                        { "title": "Remarks", "data": "remarks" },
+                        { "title": "Status", "data": "status" },
+                        {
+                            "title": "", "data": "action", width: "20px", render: function (data, d, r, rc) {
+                                return "<a type = 'button' href='javascript:void(0)' data-id='" + r.id + "' class='btn btn-default btn-icon'  onclick='loanDisbursement.printVoucher(this)' title='Print voucher'><i class='fa-solid fa-print'></i></a><a href='#' type = 'button' title='Cancel voucher' class='btn btn-default btn-icon'><i class='fa-solid fa-eraser'></i></a>";
+                            }
+                        }
+                    ],
+                    ajax: "/LoanDisbrusement/GetLoanDisbrusementList"
+                });
+            },
+            printVoucher: function (e) {
+                var id = $(e).data("id");
+                $.ajax({
+                    url: "@Url.Action("GetLoanDisbrusementVoucher")",
+                    data: {id:id},
+                    success: function (response) {
+                        var newWin = window.open('', 'Print-Window');
+                        newWin.document.open();
+                        newWin.document.write(response);
+                        newWin.document.close();
+                        setTimeout(function () {
+                        newWin.print();
+                        }, 200);
+                    },
+                    error: function () {
+                        toastr.warning("Fail to print voucher.");
+                    }
+                })
+            }
+        }
+        $(document).ready(function () {
+            loanDisbursement.loadTable();
+        });
+
+    </script>
+}
