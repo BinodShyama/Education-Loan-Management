@@ -83,6 +83,14 @@
     {
       "library": "bootbox.js@5.5.3",
       "destination": "wwwroot/lib/bootbox.js/"
+    },
+    {
+      "library": "jqueryui@1.13.2",
+      "destination": "wwwroot/lib/jqueryui/",
+      "files": [
+        "jquery-ui.min.js",
+        "themes/base/jquery-ui.min.css"
+      ]
     }
   ]
 }

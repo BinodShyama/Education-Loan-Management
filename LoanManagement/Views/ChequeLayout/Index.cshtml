@@ -1,0 +1,207 @@
+﻿@{
+    ViewData["Title"] = "Cheque Layout";
+}
+<link href="~/css/cheque.css" rel="stylesheet" />
+<link href="~/lib/jquery-ui/jquery-ui.min.css" rel="stylesheet" />
+<div id="page-head">
+
+    <div id="page-title">
+        <h1 class="page-header text-overflow">Cheque Layout</h1>
+    </div>
+    <ol class="breadcrumb">
+        <li><a href="#"><i class="fa-solid fa-house"></i></a></li>
+        <li class="active">Cheque Layout</li>
+    </ol>
+
+</div>
+
+<div id="page-content">
+    <div class="card">
+        <div class="eq-height clearfix">
+            <div class="col-md-4 eq-box-md  bord-hor">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Cheque Layout(mm)</h3>
+
+                </div>
+                <div>
+                    <div class="col-md-12">
+                        <div class="d-flex mt-1">
+                            <div class="checkbox col-md-6">
+                                @* <input id="size" class="magic-checkbox" type="checkbox" checked="">*@
+                                <label for="size">Cheque Size</label>
+                            </div>
+                            <div class="checkbox col-md-6">
+                                @*<input id="date" class="magic-checkbox" type="checkbox" checked="">*@
+                                <label for="date">Date</label>
+                            </div>
+                        </div>
+                        <!-- Checkboxes -->
+                        <div class="d-flex justify-content-between">
+                            <div class="card mt-2 col-md-6 mr-1">
+                                <div class="form-group  d-flex mt-2">
+                                    <label class="col-md-2 control-label" for="x-size">X:</label>
+                                    <div class="col-md-10">
+                                        <input type="text" placeholder="X position" id="x-size" class="form-control input-sm">
+                                    </div>
+                                </div>
+                                <div class="form-group d-flex">
+                                    <label class="col-sm-2 control-label" for="y-size">Y:</label>
+                                    <div class="col-sm-10">
+                                        <input type="text" placeholder="Y Position" id="y-size" class="form-control input-sm">
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="card mt-2 col-md-6 ml-1">
+                                <div class="form-group  d-flex mt-2">
+                                    <label class="col-md-2 control-label" for="x-date">X:</label>
+                                    <div class="col-md-10">
+                                        <input type="text" placeholder=".input-sm" class="form-control input-sm" id="x-date">
+                                    </div>
+                                </div>
+                                <div class="form-group d-flex">
+                                    <label class="col-sm-2 control-label" for="y-date">Y:</label>
+                                    <div class="col-sm-10">
+                                        <input type="text" placeholder=".input-sm" class="form-control input-sm" id="y-date">
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-12 mt-2">
+                        <div class="d-flex">
+                            <div class="checkbox col-md-6">
+                                @* <input id="date" class="magic-checkbox" type="checkbox" checked="">*@
+                                <label for="date">Payee Name</label>
+                            </div>
+                            <div class="checkbox col-md-6">
+                                @*<input id="amount" class="magic-checkbox" type="checkbox" checked="">*@
+                                <label for="amount">Amount</label>
+                            </div>
+                        </div>
+                        <!-- Checkboxes -->
+                        <div class="d-flex justify-content-between">
+                            <div class="card mt-2 col-md-6 mr-1">
+                                <div class="form-group  d-flex mt-2">
+                                    <label class="col-md-2 control-label" for="x-payee">X:</label>
+                                    <div class="col-md-10">
+                                        <input type="text" placeholder=".input-sm" class="form-control input-sm" id="x-payee">
+                                    </div>
+                                </div>
+                                <div class="form-group d-flex">
+                                    <label class="col-sm-2 control-label" for="y-payee">Y:</label>
+                                    <div class="col-sm-10">
+                                        <input type="text" placeholder=".input-sm" class="form-control input-sm" id="y-payee">
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="card mt-2 col-md-6 ml-1">
+                                <div class="form-group  d-flex mt-2">
+                                    <label class="col-md-2 control-label" for="x-amount">X:</label>
+                                    <div class="col-md-10">
+                                        <input type="text" placeholder=".input-sm" class="form-control input-sm" id="x-amount">
+                                    </div>
+                                </div>
+                                <div class="form-group d-flex">
+                                    <label class="col-sm-2 control-label" for="y-amount">Y:</label>
+                                    <div class="col-sm-10">
+                                        <input type="text" placeholder=".input-sm" class="form-control input-sm" id="y-amount">
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-12 mt-2">
+                        <div class="d-flex">
+                            <div class="checkbox col-md-6">
+                                @*<input id="date" class="magic-checkbox" type="checkbox" checked="">*@
+                                <label for="date">Amount In Word 1</label>
+                            </div>
+                            <div class="checkbox col-md-6">
+                                @*  <input id="amount" class="magic-checkbox" type="checkbox" checked="">*@
+                                <label for="amount">Amount In Word 2</label>
+                            </div>
+                        </div>
+                        <!-- Checkboxes -->
+                        <div class="d-flex justify-content-between">
+                            <div class="card mt-2 col-md-6 mr-1">
+                                <div class="form-group  d-flex mt-2">
+                                    <label class="col-md-2 control-label" for="x-amount-in-word-1">X:</label>
+                                    <div class="col-md-10">
+                                        <input type="text" placeholder=".input-sm" class="form-control input-sm" id="x-amount-in-word-1">
+                                    </div>
+                                </div>
+                                <div class="form-group d-flex">
+                                    <label class="col-sm-2 control-label" for="y-amount-in-word-1">Y:</label>
+                                    <div class="col-sm-10">
+                                        <input type="text" placeholder=".input-sm" class="form-control input-sm" id="y-amount-in-word-1">
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="card mt-2 col-md-6 ml-1">
+                                <div class="form-group  d-flex mt-2">
+                                    <label class="col-md-2 control-label" for="x-amount-in-word-2">X:</label>
+                                    <div class="col-md-10">
+                                        <input type="text" placeholder=".input-sm" class="form-control input-sm" id="x-amount-in-word-2">
+                                    </div>
+                                </div>
+                                <div class="form-group d-flex">
+                                    <label class="col-sm-2 control-label" for="y-amount-in-word-2">Y:</label>
+                                    <div class="col-sm-10">
+                                        <input type="text" placeholder=".input-sm" class="form-control input-sm" id="y-amount-in-word-2">
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="panel-footer text-right mt-4">
+
+                    <button class="btn btn-default" type="button"><i class="fa-solid fa-print mr-1"></i>Print</button>
+                    <button class="btn btn-success" id="submit" type="button"><i class="fa-regular fa-floppy-disk mr-1"></i>Save</button>
+                </div>
+            </div>
+            <div class="col-md-8 eq-box-md eq-no-panel">
+                
+                <div class="row h-100 justify-content-center align-items-center">
+                    <div>
+                        <div class="d-flex justify-content-end m-2">
+                            <button class="btn btn-default" title="Upload background cheque" type="button"><i class="fa-solid fa-file-arrow-up"></i></button>
+                        </div>
+                        <div class="cheque-body">
+                            <label class="dragThis" id="date">Date</label>
+                            <label class="dragThis" id="amount">Amount</label>
+                            <label class="dragThis" id="payee">Payee Name</label>
+                            <label class="dragThis" id="amount-in-word-1">Amount in word I</label>
+                            <label class="dragThis" id="amount-in-word-2">Amount in word II</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+@section Scripts{
+    <script src="~/lib/jquery-ui/jquery-ui.min.js"></script>
+    <script>
+        $('.dragThis').draggable(
+            {
+                containment: 'parent',
+                drag: function (e) {
+                    var offset = $(this).position();
+                    var offsetParent = $(this).parent().position();
+                    var xPos = offset.left;
+                    var yPos = offset.top;
+                    $('#x-'+$(this).attr('id')).val(xPos);
+                    $('#y-'+$(this).attr('id')).val(yPos);
+                }
+            });
+    </script>
+
+}

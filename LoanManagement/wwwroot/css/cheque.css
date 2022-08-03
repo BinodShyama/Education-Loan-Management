@@ -1,0 +1,10 @@
+﻿.cheque-body {
+    position:relative;
+    box-sizing: border-box;
+    height: 3.5in;
+    margin: 0 auto;
+    overflow: hidden;
+    padding: 0.0in;
+    width: 7in;
+    box-shadow: 5px 10px 20px rgba(0,0,0,0.10), 0 6px 6px rgba(0,0,0,0.10);
+}
