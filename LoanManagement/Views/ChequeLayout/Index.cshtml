@@ -20,7 +20,7 @@
         <div class="eq-height clearfix">
             <div class="col-md-4 eq-box-md  bord-hor">
                 <div class="panel-heading">
-                    <h3 class="panel-title">Cheque Layout(mm)</h3>
+                    <h3 class="panel-title">Cheque Layout(cm)</h3>
 
                 </div>
                 <div>
@@ -39,15 +39,15 @@
                         <div class="d-flex justify-content-between">
                             <div class="card mt-2 col-md-6 mr-1">
                                 <div class="form-group  d-flex mt-2">
-                                    <label class="col-md-2 control-label" for="x-size">X:</label>
+                                    <label class="col-md-2 control-label" for="x-size">H:</label>
                                     <div class="col-md-10">
-                                        <input type="text" placeholder="X position" id="x-size" class="form-control input-sm">
+                                        <input type="number" placeholder="Enter cheque height (cm)" id="x-size" class="form-control input-sm">
                                     </div>
                                 </div>
                                 <div class="form-group d-flex">
-                                    <label class="col-sm-2 control-label" for="y-size">Y:</label>
+                                    <label class="col-sm-2 control-label" for="y-size">W:</label>
                                     <div class="col-sm-10">
-                                        <input type="text" placeholder="Y Position" id="y-size" class="form-control input-sm">
+                                        <input type="number" placeholder="Enter cheque width (cm)" id="y-size" class="form-control input-sm">
                                     </div>
                                 </div>
 
@@ -56,13 +56,13 @@
                                 <div class="form-group  d-flex mt-2">
                                     <label class="col-md-2 control-label" for="x-date">X:</label>
                                     <div class="col-md-10">
-                                        <input type="text" placeholder=".input-sm" class="form-control input-sm" id="x-date">
+                                        <input type="number" placeholder="x-position (cm)" class="form-control input-sm" id="x-date">
                                     </div>
                                 </div>
                                 <div class="form-group d-flex">
                                     <label class="col-sm-2 control-label" for="y-date">Y:</label>
                                     <div class="col-sm-10">
-                                        <input type="text" placeholder=".input-sm" class="form-control input-sm" id="y-date">
+                                        <input type="number" placeholder="y-position (cm)" class="form-control input-sm" id="y-date">
                                     </div>
                                 </div>
 
@@ -86,13 +86,13 @@
                                 <div class="form-group  d-flex mt-2">
                                     <label class="col-md-2 control-label" for="x-payee">X:</label>
                                     <div class="col-md-10">
-                                        <input type="text" placeholder=".input-sm" class="form-control input-sm" id="x-payee">
+                                        <input type="number" placeholder="x-position (cm)" class="form-control input-sm" id="x-payee">
                                     </div>
                                 </div>
                                 <div class="form-group d-flex">
                                     <label class="col-sm-2 control-label" for="y-payee">Y:</label>
                                     <div class="col-sm-10">
-                                        <input type="text" placeholder=".input-sm" class="form-control input-sm" id="y-payee">
+                                        <input type="number" placeholder="x-position (cm)" class="form-control input-sm" id="y-payee">
                                     </div>
                                 </div>
 
@@ -101,13 +101,13 @@
                                 <div class="form-group  d-flex mt-2">
                                     <label class="col-md-2 control-label" for="x-amount">X:</label>
                                     <div class="col-md-10">
-                                        <input type="text" placeholder=".input-sm" class="form-control input-sm" id="x-amount">
+                                        <input type="number" placeholder="x-position (cm)" class="form-control input-sm" id="x-amount">
                                     </div>
                                 </div>
                                 <div class="form-group d-flex">
                                     <label class="col-sm-2 control-label" for="y-amount">Y:</label>
                                     <div class="col-sm-10">
-                                        <input type="text" placeholder=".input-sm" class="form-control input-sm" id="y-amount">
+                                        <input type="number" placeholder="x-position (cm)" class="form-control input-sm" id="y-amount">
                                     </div>
                                 </div>
 
@@ -118,41 +118,41 @@
                         <div class="d-flex">
                             <div class="checkbox col-md-6">
                                 @*<input id="date" class="magic-checkbox" type="checkbox" checked="">*@
-                                <label for="date">Amount In Word 1</label>
+                                <label for="date">Amount In Word Line 1</label>
                             </div>
                             <div class="checkbox col-md-6">
                                 @*  <input id="amount" class="magic-checkbox" type="checkbox" checked="">*@
-                                <label for="amount">Amount In Word 2</label>
+                                <label for="amount">Amount In Word Line 2</label>
                             </div>
                         </div>
                         <!-- Checkboxes -->
                         <div class="d-flex justify-content-between">
                             <div class="card mt-2 col-md-6 mr-1">
                                 <div class="form-group  d-flex mt-2">
-                                    <label class="col-md-2 control-label" for="x-amount-in-word-1">X:</label>
+                                    <label class="col-md-2 control-label" for="x-amountinword1">X:</label>
                                     <div class="col-md-10">
-                                        <input type="text" placeholder=".input-sm" class="form-control input-sm" id="x-amount-in-word-1">
+                                        <input type="number" placeholder="x-position (cm)" class="form-control input-sm" id="x-amountinword1">
                                     </div>
                                 </div>
                                 <div class="form-group d-flex">
-                                    <label class="col-sm-2 control-label" for="y-amount-in-word-1">Y:</label>
+                                    <label class="col-sm-2 control-label" for="y-amountinword1">Y:</label>
                                     <div class="col-sm-10">
-                                        <input type="text" placeholder=".input-sm" class="form-control input-sm" id="y-amount-in-word-1">
+                                        <input type="number" placeholder="y-position (cm)" class="form-control input-sm" id="y-amountinword1">
                                     </div>
                                 </div>
 
                             </div>
                             <div class="card mt-2 col-md-6 ml-1">
                                 <div class="form-group  d-flex mt-2">
-                                    <label class="col-md-2 control-label" for="x-amount-in-word-2">X:</label>
+                                    <label class="col-md-2 control-label" for="x-amountinword2">X:</label>
                                     <div class="col-md-10">
-                                        <input type="text" placeholder=".input-sm" class="form-control input-sm" id="x-amount-in-word-2">
+                                        <input type="number" placeholder="x-position (cm)" class="form-control input-sm" id="x-amountinword2">
                                     </div>
                                 </div>
                                 <div class="form-group d-flex">
-                                    <label class="col-sm-2 control-label" for="y-amount-in-word-2">Y:</label>
+                                    <label class="col-sm-2 control-label" for="y-amountinword2">Y:</label>
                                     <div class="col-sm-10">
-                                        <input type="text" placeholder=".input-sm" class="form-control input-sm" id="y-amount-in-word-2">
+                                        <input type="number" placeholder="y-position (cm)" class="form-control input-sm" id="y-amountinword2">
                                     </div>
                                 </div>
 
@@ -166,8 +166,8 @@
                     <button class="btn btn-success" id="submit" type="button"><i class="fa-regular fa-floppy-disk mr-1"></i>Save</button>
                 </div>
             </div>
-            <div class="col-md-8 eq-box-md eq-no-panel">
-                
+            <div class="col-md-8 eq-box-md overflow-auto eq-no-panel">
+
                 <div class="row h-100 justify-content-center align-items-center">
                     <div>
                         <div class="d-flex justify-content-end m-2">
@@ -177,8 +177,9 @@
                             <label class="dragThis" id="date">Date</label>
                             <label class="dragThis" id="amount">Amount</label>
                             <label class="dragThis" id="payee">Payee Name</label>
-                            <label class="dragThis" id="amount-in-word-1">Amount in word I</label>
-                            <label class="dragThis" id="amount-in-word-2">Amount in word II</label>
+                            <label class="dragThis" id="amountinword1">Amount in word line 1</label>
+                            <label class="dragThis" id="amountinword2">Amount in word line 2</label>
+                            <div id="d-ab" style="height:1cm;width:1cm;"></div>
                         </div>
                     </div>
                 </div>
@@ -190,6 +191,7 @@
 @section Scripts{
     <script src="~/lib/jquery-ui/jquery-ui.min.js"></script>
     <script>
+        var ratio = parseFloat(1 / parseFloat($('#d-ab').width()));
         $('.dragThis').draggable(
             {
                 containment: 'parent',
@@ -198,10 +200,35 @@
                     var offsetParent = $(this).parent().position();
                     var xPos = offset.left;
                     var yPos = offset.top;
-                    $('#x-'+$(this).attr('id')).val(xPos);
-                    $('#y-'+$(this).attr('id')).val(yPos);
+                    $('#x-' + $(this).attr('id')).val(xPos*ratio);
+                    $('#y-' + $(this).attr('id')).val(yPos*ratio);
                 }
             });
+        $('input[type="number"]').on('change', function () {
+            try {
+                var id = $(this).attr('id');
+                var elem = $('#' + id.split('-')[1]);
+                var point = id.split('-')[0];
+                var position = $(elem).position();
+                if (point == 'x') {
+                    $(elem).css({ top: position.top, left: parseFloat($(this).val()) + 'cm', position: 'absolute' });
+                }
+
+                else if (point == 'y')
+                    $(elem).css({ top: parseFloat($(this).val()) + 'cm', left: position.left, position: 'absolute' });
+            } catch {
+
+            }
+        });
+        $('#x-size').off().on('change', function (e) {
+            e.preventDefault();
+            $('.cheque-body').height($(this).val() + 'cm');
+        });
+        $('#y-size').off().on('change', function (e) {
+            e.preventDefault();
+            $('.cheque-body').width($(this).val() + 'cm');
+        });
+
     </script>
 
 }
