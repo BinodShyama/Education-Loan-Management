@@ -1,6 +1,7 @@
 ﻿@{
     ViewData["Title"] = "Cheque Layout";
 }
+@model LoanManagement.ViewModel.Cheque.ChequeLayoutDto
 <link href="~/css/cheque.css" rel="stylesheet" />
 <link href="~/lib/jquery-ui/jquery-ui.min.css" rel="stylesheet" />
 <div id="page-head">
@@ -21,9 +22,14 @@
             <div class="col-md-4 eq-box-md  bord-hor">
                 <div class="panel-heading">
                     <h3 class="panel-title">Cheque Layout(cm)</h3>
-
                 </div>
                 <div>
+                    <div class="col-md-12">
+                        <div class="form-group mt-2">
+                            <label class="control-label" asp-for="Name">Layout Name</label>
+                            <input placeholder="Enter layout name" asp-for="Name" class="form-control">
+                        </div>
+                    </div>
                     <div class="col-md-12">
                         <div class="d-flex mt-1">
                             <div class="checkbox col-md-6">
@@ -41,13 +47,13 @@
                                 <div class="form-group  d-flex mt-2">
                                     <label class="col-md-2 control-label" for="x-size">H:</label>
                                     <div class="col-md-10">
-                                        <input type="number" placeholder="Enter cheque height (cm)" id="x-size" class="form-control input-sm">
+                                        <input type="number" asp-for="Height" placeholder="Enter cheque height (cm)" id="x-size" class="form-control input-sm">
                                     </div>
                                 </div>
                                 <div class="form-group d-flex">
                                     <label class="col-sm-2 control-label" for="y-size">W:</label>
                                     <div class="col-sm-10">
-                                        <input type="number" placeholder="Enter cheque width (cm)" id="y-size" class="form-control input-sm">
+                                        <input type="number" asp-for="Width" placeholder="Enter cheque width (cm)" id="y-size" class="form-control input-sm">
                                     </div>
                                 </div>
 
@@ -56,13 +62,13 @@
                                 <div class="form-group  d-flex mt-2">
                                     <label class="col-md-2 control-label" for="x-date">X:</label>
                                     <div class="col-md-10">
-                                        <input type="number" placeholder="x-position (cm)" class="form-control input-sm" id="x-date">
+                                        <input type="number" asp-for="XDate" placeholder="x-position (cm)" class="form-control input-sm" id="x-date">
                                     </div>
                                 </div>
                                 <div class="form-group d-flex">
                                     <label class="col-sm-2 control-label" for="y-date">Y:</label>
                                     <div class="col-sm-10">
-                                        <input type="number" placeholder="y-position (cm)" class="form-control input-sm" id="y-date">
+                                        <input type="number" asp-for="YDate" placeholder="y-position (cm)" class="form-control input-sm" id="y-date">
                                     </div>
                                 </div>
 
@@ -86,13 +92,13 @@
                                 <div class="form-group  d-flex mt-2">
                                     <label class="col-md-2 control-label" for="x-payee">X:</label>
                                     <div class="col-md-10">
-                                        <input type="number" placeholder="x-position (cm)" class="form-control input-sm" id="x-payee">
+                                        <input type="number" asp-for="XPayee" placeholder="x-position (cm)" class="form-control input-sm" id="x-payee">
                                     </div>
                                 </div>
                                 <div class="form-group d-flex">
                                     <label class="col-sm-2 control-label" for="y-payee">Y:</label>
                                     <div class="col-sm-10">
-                                        <input type="number" placeholder="x-position (cm)" class="form-control input-sm" id="y-payee">
+                                        <input type="number" asp-for="YPayee" placeholder="x-position (cm)" class="form-control input-sm" id="y-payee">
                                     </div>
                                 </div>
 
@@ -101,13 +107,13 @@
                                 <div class="form-group  d-flex mt-2">
                                     <label class="col-md-2 control-label" for="x-amount">X:</label>
                                     <div class="col-md-10">
-                                        <input type="number" placeholder="x-position (cm)" class="form-control input-sm" id="x-amount">
+                                        <input type="number" asp-for="XAmount" placeholder="x-position (cm)" class="form-control input-sm" id="x-amount">
                                     </div>
                                 </div>
                                 <div class="form-group d-flex">
                                     <label class="col-sm-2 control-label" for="y-amount">Y:</label>
                                     <div class="col-sm-10">
-                                        <input type="number" placeholder="x-position (cm)" class="form-control input-sm" id="y-amount">
+                                        <input type="number" asp-for="YAmount" placeholder="x-position (cm)" class="form-control input-sm" id="y-amount">
                                     </div>
                                 </div>
 
@@ -131,13 +137,13 @@
                                 <div class="form-group  d-flex mt-2">
                                     <label class="col-md-2 control-label" for="x-amountinword1">X:</label>
                                     <div class="col-md-10">
-                                        <input type="number" placeholder="x-position (cm)" class="form-control input-sm" id="x-amountinword1">
+                                        <input type="number" asp-for="XAmountInWordLine1" placeholder="x-position (cm)" class="form-control input-sm" id="x-amountinword1">
                                     </div>
                                 </div>
                                 <div class="form-group d-flex">
                                     <label class="col-sm-2 control-label" for="y-amountinword1">Y:</label>
                                     <div class="col-sm-10">
-                                        <input type="number" placeholder="y-position (cm)" class="form-control input-sm" id="y-amountinword1">
+                                        <input type="number" asp-for="YAmountInWordLine1" placeholder="y-position (cm)" class="form-control input-sm" id="y-amountinword1">
                                     </div>
                                 </div>
 
@@ -146,13 +152,13 @@
                                 <div class="form-group  d-flex mt-2">
                                     <label class="col-md-2 control-label" for="x-amountinword2">X:</label>
                                     <div class="col-md-10">
-                                        <input type="number" placeholder="x-position (cm)" class="form-control input-sm" id="x-amountinword2">
+                                        <input type="number" asp-for="XAmountInWordLine2" placeholder="x-position (cm)" class="form-control input-sm" id="x-amountinword2">
                                     </div>
                                 </div>
                                 <div class="form-group d-flex">
                                     <label class="col-sm-2 control-label" for="y-amountinword2">Y:</label>
                                     <div class="col-sm-10">
-                                        <input type="number" placeholder="y-position (cm)" class="form-control input-sm" id="y-amountinword2">
+                                        <input type="number" asp-for="YAmountInWordLine2" placeholder="y-position (cm)" class="form-control input-sm" id="y-amountinword2">
                                     </div>
                                 </div>
 
@@ -200,8 +206,8 @@
                     var offsetParent = $(this).parent().position();
                     var xPos = offset.left;
                     var yPos = offset.top;
-                    $('#x-' + $(this).attr('id')).val(xPos*ratio);
-                    $('#y-' + $(this).attr('id')).val(yPos*ratio);
+                    $('#x-' + $(this).attr('id')).val(xPos * ratio);
+                    $('#y-' + $(this).attr('id')).val(yPos * ratio);
                 }
             });
         $('input[type="number"]').on('change', function () {

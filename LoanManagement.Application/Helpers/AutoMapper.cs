@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using LoanManagement.Domain.Entities;
 using LoanManagement.ViewModel.Address;
+using LoanManagement.ViewModel.Cheque;
 using LoanManagement.ViewModel.LoanCollections;
 using LoanManagement.ViewModel.LoanDisbrusement;
 using LoanManagement.ViewModel.Members;
@@ -37,6 +38,8 @@ namespace LoanManagement.Application.Helpers
 
             CreateMap<Districts, DistrictDto>()
                 .ForMember(c => c.Province, opt => opt.MapFrom(c => c.Province.Name));
+
+            CreateMap<ChequeLayout, ChequeLayoutDto>();
         }
     }
 }

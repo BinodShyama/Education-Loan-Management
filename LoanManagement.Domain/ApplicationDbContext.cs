@@ -31,6 +31,7 @@ namespace LoanManagement.Domain
         public DbSet<LoanCollectionDetail> LoanCollectionDetail { get; set; }
         public DbSet<Transaction> Transaction { get; set; }
         public DbSet<TransactionDetail> TransactionDetail { get; set; }
+        public DbSet<ChequeLayout> ChequeLayout { get; set; }
 
         private void SeedAddress(ModelBuilder builder)
         {
