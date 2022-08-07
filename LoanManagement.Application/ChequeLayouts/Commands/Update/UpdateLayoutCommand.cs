@@ -33,9 +33,12 @@ namespace LoanManagement.Application.ChequeLayouts.Commands.Update
             {
                 try
                 {
-                    var layout = await _context.ChequeLayout.Where(c => c.Id == request.id).FirstOrDefaultAsync();
+                    var layout = await _context.ChequeLayout.Where(c => c.Id == request.id).AsNoTracking().FirstOrDefaultAsync();
                     if (layout != null)
                     {
+                        request.model.Id = layout.Id;
+                        request.model.CreatedBy = layout.CreatedBy;
+                        request.model.CreatedDate = layout.CreatedDate;
                         layout = _mapper.Map<ChequeLayout>(request.model);
                         _context.Update<ChequeLayout>(layout);
                         await _context.SaveChangesAsync(cancellationToken);

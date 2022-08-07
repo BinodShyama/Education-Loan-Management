@@ -27,11 +27,13 @@ namespace LoanManagement.Domain
         public DbSet<Municipalities> Municipality { get; set; }
         public DbSet<LoanDisbrusement> LoanDisbrusement { get; set; }
         public DbSet<LoanDisbrusementDetail> LoanDisbrusementDetail { get; set; }
-        public DbSet<LoanCollection> LoanCollection  { get; set; }
+        public DbSet<LoanCollection> LoanCollection { get; set; }
         public DbSet<LoanCollectionDetail> LoanCollectionDetail { get; set; }
         public DbSet<Transaction> Transaction { get; set; }
         public DbSet<TransactionDetail> TransactionDetail { get; set; }
         public DbSet<ChequeLayout> ChequeLayout { get; set; }
+        public DbSet<Media> Media { get; set; }
+        public DbSet<ChequeMedia> ChequeMedia { get; set; }
 
         private void SeedAddress(ModelBuilder builder)
         {
@@ -139,7 +141,7 @@ namespace LoanManagement.Domain
         protected override void OnModelCreating(ModelBuilder builder)
         {
             base.OnModelCreating(builder);
-        //    SeedAddress(builder);
+            //    SeedAddress(builder);
             builder.HasDefaultSchema("dbo");
             builder.Entity<User>().ToTable("User");
             builder.Entity<Role>().ToTable("Role");

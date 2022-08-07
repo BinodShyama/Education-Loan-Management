@@ -4,14 +4,16 @@ using LoanManagement.Domain;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace LoanManagement.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20220806012607_chequelayoutconfig")]
+    partial class chequelayoutconfig
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -321,47 +323,6 @@ namespace LoanManagement.Migrations
                     b.HasIndex("InstallmentId");
 
                     b.ToTable("LoanDisbrusementDetail");
-                });
-
-            modelBuilder.Entity("LoanManagement.Domain.Entities.Media", b =>
-                {
-                    b.Property<string>("Id")
-                        .HasColumnType("nvarchar(450)");
-
-                    b.Property<string>("CreatedBy")
-                        .HasColumnType("varchar(50)");
-
-                    b.Property<DateTime>("CreatedDate")
-                        .HasColumnType("datetime2(3)");
-
-                    b.Property<string>("Description")
-                        .HasColumnType("varchar(500)");
-
-                    b.Property<string>("Path")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<bool>("Status")
-                        .HasColumnType("bit");
-
-                    b.Property<string>("Title")
-                        .IsRequired()
-                        .HasColumnType("varchar(500)");
-
-                    b.Property<string>("Type")
-                        .HasColumnType("varchar(250)");
-
-                    b.Property<DateTime>("UpdateDate")
-                        .HasColumnType("datetime2(3)");
-
-                    b.Property<string>("UpdatedBy")
-                        .HasColumnType("varchar(50)");
-
-                    b.Property<string>("Url")
-                        .HasColumnType("varchar(50)");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Media");
                 });
 
             modelBuilder.Entity("LoanManagement.Domain.Entities.Member", b =>

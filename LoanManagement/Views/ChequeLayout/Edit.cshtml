@@ -1,0 +1,299 @@
+﻿@{
+    ViewData["Title"] = "Cheque Layout";
+}
+@model LoanManagement.ViewModel.Cheque.ChequeLayoutDto
+<link href="~/css/cheque.css" rel="stylesheet" />
+<link href="~/lib/jquery-ui/jquery-ui.min.css" rel="stylesheet" />
+<div id="page-head">
+
+    <div id="page-title">
+        <h1 class="page-header text-overflow">Cheque Layout</h1>
+    </div>
+    <ol class="breadcrumb">
+        <li><a href="#"><i class="fa-solid fa-house"></i></a></li>
+        <li><a href="/chequelayout/index">Layout List</a></li>
+        <li class="active">Edit Cheque Layout</li>
+    </ol>
+
+</div>
+
+<div id="page-content">
+    <div class="card">
+        <div class="eq-height clearfix">
+            <div class="col-md-4 eq-box-md  bord-hor">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Cheque Layout(cm)</h3>
+                </div>
+                <form id="form-layout" method="post" asp-controller="ChequeLayout"  asp-action="Edit">
+                    <input type="hidden" asp-for="Id" />
+                    <div class="col-md-12">
+                        <div class="form-group mt-2">
+                            <label class="control-label" asp-for="Name">Layout Name</label>
+                            <input placeholder="Enter layout name" asp-for="Name" class="form-control">
+                            <span asp-validation-for="Name"></span>
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="d-flex mt-1">
+                            <div class="checkbox col-md-6">
+                                @* <input id="size" class="magic-checkbox" type="checkbox" checked="">*@
+                                <label for="size">Cheque Size</label>
+                            </div>
+                            <div class="checkbox col-md-6">
+                                @*<input id="date" class="magic-checkbox" type="checkbox" checked="">*@
+                                <label for="date">Date</label>
+                            </div>
+                        </div>
+                        <!-- Checkboxes -->
+                        <div class="d-flex justify-content-between">
+                            <div class="card mt-2 col-md-6 mr-1">
+                                <div class="form-group  d-flex mt-2">
+                                    <label class="col-md-2 control-label" for="x-size">H:</label>
+                                    <div class="col-md-10">
+                                        <input type="number" asp-for="Height" placeholder="Enter cheque height (cm)" id="x-size" class="form-control input-sm">
+                                    </div>
+                                    <span asp-validation-for="Height"></span>
+                                </div>
+                                <div class="form-group d-flex">
+                                    <label class="col-sm-2 control-label" for="y-size">W:</label>
+                                    <div class="col-sm-10">
+                                        <input type="number" asp-for="Width" placeholder="Enter cheque width (cm)" id="y-size" class="form-control input-sm">
+                                    </div>
+                                    <span asp-validation-for="Width"></span>
+                                </div>
+
+                            </div>
+                            <div class="card mt-2 col-md-6 ml-1">
+                                <div class="form-group  d-flex mt-2">
+                                    <label class="col-md-2 control-label" for="x-date">X:</label>
+                                    <div class="col-md-10">
+                                        <input type="number" asp-for="XDate" placeholder="x-position (cm)" class="form-control input-sm" id="x-date">
+                                    </div>
+                                    <span asp-validation-for="XDate"></span>
+                                </div>
+                                <div class="form-group d-flex">
+                                    <label class="col-sm-2 control-label" for="y-date">Y:</label>
+                                    <div class="col-sm-10">
+                                        <input type="number" asp-for="YDate" placeholder="y-position (cm)" class="form-control input-sm" id="y-date">
+                                    </div>
+                                    <span asp-validation-for="YDate"></span>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-12 mt-2">
+                        <div class="d-flex">
+                            <div class="checkbox col-md-6">
+                                @* <input id="date" class="magic-checkbox" type="checkbox" checked="">*@
+                                <label for="date">Payee Name</label>
+                            </div>
+                            <div class="checkbox col-md-6">
+                                @*<input id="amount" class="magic-checkbox" type="checkbox" checked="">*@
+                                <label for="amount">Amount</label>
+                            </div>
+                        </div>
+                        <!-- Checkboxes -->
+                        <div class="d-flex justify-content-between">
+                            <div class="card mt-2 col-md-6 mr-1">
+                                <div class="form-group  d-flex mt-2">
+                                    <label class="col-md-2 control-label" for="x-payee">X:</label>
+                                    <div class="col-md-10">
+                                        <input type="number" asp-for="XPayee" placeholder="x-position (cm)" class="form-control input-sm" id="x-payee">
+                                    </div>
+                                    <span asp-validation-for="XPayee"></span>
+                                </div>
+                                <div class="form-group d-flex">
+                                    <label class="col-sm-2 control-label" for="y-payee">Y:</label>
+                                    <div class="col-sm-10">
+                                        <input type="number" asp-for="YPayee" placeholder="x-position (cm)" class="form-control input-sm" id="y-payee">
+                                    </div>
+                                    <span asp-validation-for="YPayee"></span>
+                                </div>
+
+                            </div>
+                            <div class="card mt-2 col-md-6 ml-1">
+                                <div class="form-group  d-flex mt-2">
+                                    <label class="col-md-2 control-label" for="x-amount">X:</label>
+                                    <div class="col-md-10">
+                                        <input type="number" asp-for="XAmount" placeholder="x-position (cm)" class="form-control input-sm" id="x-amount">
+                                    </div>
+                                    <span asp-validation-for="XAmount"></span>
+                                </div>
+                                <div class="form-group d-flex">
+                                    <label class="col-sm-2 control-label" for="y-amount">Y:</label>
+                                    <div class="col-sm-10">
+                                        <input type="number" asp-for="YAmount" placeholder="x-position (cm)" class="form-control input-sm" id="y-amount">
+                                    </div>
+                                    <span asp-validation-for="YAmount"></span>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-12 mt-2">
+                        <div class="d-flex">
+                            <div class="checkbox col-md-6">
+                                @*<input id="date" class="magic-checkbox" type="checkbox" checked="">*@
+                                <label for="date">Amount In Word Line 1</label>
+                            </div>
+                            <div class="checkbox col-md-6">
+                                @*  <input id="amount" class="magic-checkbox" type="checkbox" checked="">*@
+                                <label for="amount">Amount In Word Line 2</label>
+                            </div>
+                        </div>
+                        <!-- Checkboxes -->
+                        <div class="d-flex justify-content-between">
+                            <div class="card mt-2 col-md-6 mr-1">
+                                <div class="form-group  d-flex mt-2">
+                                    <label class="col-md-2 control-label" for="x-amountinword1">X:</label>
+                                    <div class="col-md-10">
+                                        <input type="number" asp-for="XAmountInWordLine1" placeholder="x-position (cm)" class="form-control input-sm" id="x-amountinword1">
+                                    </div>
+                                    <span asp-validation-for="XAmountInWordLine1"></span>
+                                </div>
+                                <div class="form-group d-flex">
+                                    <label class="col-sm-2 control-label" for="y-amountinword1">Y:</label>
+                                    <div class="col-sm-10">
+                                        <input type="number" asp-for="YAmountInWordLine1" placeholder="y-position (cm)" class="form-control input-sm" id="y-amountinword1">
+                                    </div>
+                                    <span asp-validation-for="YAmountInWordLine1"></span>
+                                </div>
+
+                            </div>
+                            <div class="card mt-2 col-md-6 ml-1">
+                                <div class="form-group  d-flex mt-2">
+                                    <label class="col-md-2 control-label" for="x-amountinword2">X:</label>
+                                    <div class="col-md-10">
+                                        <input type="number" asp-for="XAmountInWordLine2" placeholder="x-position (cm)" class="form-control input-sm" id="x-amountinword2">
+                                    </div>
+                                    <span asp-validation-for="XAmountInWordLine2"></span>
+                                </div>
+                                <div class="form-group d-flex">
+                                    <label class="col-sm-2 control-label" for="y-amountinword2">Y:</label>
+                                    <div class="col-sm-10">
+                                        <input type="number" asp-for="YAmountInWordLine2" placeholder="y-position (cm)" class="form-control input-sm" id="y-amountinword2">
+                                    </div>
+                                    <span asp-validation-for="YAmountInWordLine2"></span>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="panel-footer text-right mt-4">
+
+                        <button class="btn btn-default" data-toggle="modal" data-target="#cheque-modal" type="button"><i class="fa-solid fa-print mr-1"></i>Print</button>
+                        <button class="btn btn-success" type="submit"><i class="fa-regular fa-floppy-disk mr-1"></i>Save</button>
+                    </div>
+                </form>
+            </div>
+            <div class="col-md-8 eq-box-md overflow-auto eq-no-panel">
+
+                <div class="row h-100 justify-content-center align-items-center">
+                    <div>
+                        <div class="d-flex justify-content-end m-2">
+                            <button class="btn btn-default d-none" title="Upload background cheque" type="button"><i class="fa-solid fa-file-arrow-up"></i></button>
+                        </div>
+                        <div class="cheque-body">
+                            <label class="dragThis d-none" id="date">Date</label>
+                            <label class="dragThis d-none" id="amount">Amount</label>
+                            <label class="dragThis d-none" id="payee">Payee Name</label>
+                            <label class="dragThis d-none" id="amountinword1">Amount in word line 1</label>
+                            <label class="dragThis d-none" id="amountinword2">Amount in word line 2</label>
+                            <div id="d-ab" style="height:1cm;width:1cm;"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+<div class="modal fade" id="cheque-modal" role="dialog" tabindex="-1" aria-labelledby="demo-default-modal" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+
+            <!--Modal header-->
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><i class="pci-cross pci-circle"></i></button>
+                <h4 class="modal-title">Cheque Detail</h4>
+            </div>
+
+            <!--Modal body-->
+            <div class="modal-body">
+                <p class="text-semibold text-main text-center">Insert the cheque detail and print the cheque.</p>
+                @await Component.InvokeAsync("ChequePrint")
+            </div>
+
+            <!--Modal footer-->
+            <div class="modal-footer">
+                <button data-dismiss="modal" class="btn btn-default" type="button">Close</button>
+                <button onclick="printCheque()" class="btn btn-primary btn-print">Print</button>
+            </div>
+        </div>
+    </div>
+</div>
+<iframe id="iFramePdf" style="display:none"></iframe>
+@section Scripts{
+    <script src="~/lib/jquery-ui/jquery-ui.min.js"></script>
+    <script src="~/js/LoanManagement.ChequeLayout.js"></script>
+    <script src="~/js/number-to-words-nepali-format.js"></script>
+    <script>
+     $(document).ready(function () {
+        $('#date').css({ "position": "absolute", "left": "@Model.XDate" + "cm", "top": "@Model.YDate" + "cm" })
+        $('#amount').css({ "position": "absolute", "left": "@Model.XAmount" + "cm", "top": "@Model.YAmount" + "cm" })
+        $('#payee').css({ "position": "absolute", "left": "@Model.XPayee" + "cm", "top": "@Model.YPayee" + "cm" })
+        $('#amountinword1').css({ "position": "absolute", "left": "@Model.XAmountInWordLine1" + "cm", "top": "@Model.YAmountInWordLine1" + "cm" })
+        $('#amountinword2').css({ "position": "absolute", "left": "@Model.XAmountInWordLine2" + "cm", "top": "@Model.YAmountInWordLine2" + "cm" })
+        $('.dragThis').removeClass('d-none');
+     });
+        printCheque = function () {
+            if ($('#form-layout').valid()) {
+                if ($('.frm-cheque-print').valid()) {
+
+                    $.ajax({
+                        type: "post",
+                        url: "/ChequeLayout/Print",
+                        data: {
+                            layoutStr: convertFormToJSON($('#form-layout')), chequedata: convertFormToJSON($('.frm-cheque-print'))
+                        },
+                        success: function (response) {
+                            if (response.status) {
+                                $('#iFramePdf').attr('src', "/cheques/" + response.data);
+                                $('#iFramePdf').focus();
+                                setTimeout(function () {
+                                    document.getElementById("iFramePdf").contentWindow.print();
+                                    setTimeout(function () {
+                                        $('#cheque-modal').modal('hide');
+                                        $('.frm-cheque-print>input').val('');
+                                    }, 300);
+                                }, 200);
+
+
+                            }
+                            else {
+                                toastr.error(response.messages[0]);
+                                return;
+                            }
+                        }
+
+                    });
+                }
+            } else {
+                $('#cheque-modal').modal('hide');
+            }
+        }
+        inWord = function (e) {
+            $('input[name="AmountInWord"]').val(amountInWord($(e).val()))
+        }
+        convertFormToJSON=  function (form) {
+            const array = $(form).serializeArray(); // Encodes the set of form elements as an array of names and values.
+            const json = {};
+            $.each(array, function () {
+                json[this.name] = this.value || "";
+            });
+            return json;
+        }
+    </script>
+}

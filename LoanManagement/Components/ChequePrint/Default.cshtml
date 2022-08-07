@@ -1,0 +1,41 @@
+﻿@using LoanManagement.Application
+@using LoanManagement.Application.Models
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@addTagHelper *, LoanManagement
+
+@model LoanManagement.ViewModel.Cheque.ChequeDataDto
+
+<form class="form-row mt-2 frm-cheque-print">
+    <div class="row col-md-12">
+        <div class="form-group col-md-12">
+            <label asp-for="Date">Cheque Date (yyyy-mm-dd)<span class="text-danger pl-1 ndate" title="Required field">*</span></label>
+            <input placeholder="Enter Cheque date" class="form-control ndate" type="text" asp-for="Date">
+            <span asp-validation-for="Date"></span>
+        </div>
+
+    </div>
+    <div class="row col-md-12">
+        <div class="form-group col-md-12">
+            <label asp-for="Payee">Payee Name<span class="text-danger pl-1" title="Required field">*</span></label>
+            <input placeholder="Enter payee Name" class="form-control" type="text" data-val="true" asp-for="Payee">
+            <span asp-validation-for="Payee"></span>
+        </div>
+
+    </div>
+    <div class="row col-md-12">
+        <div class="form-group col-md-12">
+            <label asp-for="Amount">Amount<span class="text-danger pl-1" title="Required field">*</span></label>
+            <input placeholder="Enter Amount" onkeyup="inWord(this)" class="form-control" type="number" step=".01" asp-for="Amount">
+            <span asp-validation-for="Amount"></span>
+        </div>
+
+    </div>
+    <div class="row col-md-12">
+        <div class="form-group col-md-12">
+            <label asp-for="AmountInWord">Amount in Word</label>
+            <input placeholder="Enter Amount in Word" readonly class="form-control" asp-for="AmountInWord">
+            <span asp-validation-for="AmountInWord"></span>
+        </div>
+
+    </div>
+</form>

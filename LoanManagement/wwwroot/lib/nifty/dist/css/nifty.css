@@ -7091,7 +7091,7 @@ a.list-group-item-dark,
     }
 
 .modal {
-    text-align: center;
+    /*text-align: center;*/
     z-index: 10000;
 }
 
@@ -7171,8 +7171,8 @@ a.list-group-item-dark,
 
     .modal-body > .close,
     .modal-header > .close {
-        top: 50%;
-        margin-top: -0.5em;
+      /*  top: 50%;
+        margin-top: -0.5em;*/
         right: 10px;
         left: auto;
         position: absolute;

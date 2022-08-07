@@ -4,6 +4,7 @@ using LoanManagement.ViewModel.Address;
 using LoanManagement.ViewModel.Cheque;
 using LoanManagement.ViewModel.LoanCollections;
 using LoanManagement.ViewModel.LoanDisbrusement;
+using LoanManagement.ViewModel.Media;
 using LoanManagement.ViewModel.Members;
 using System;
 using System.Collections.Generic;
@@ -39,7 +40,8 @@ namespace LoanManagement.Application.Helpers
             CreateMap<Districts, DistrictDto>()
                 .ForMember(c => c.Province, opt => opt.MapFrom(c => c.Province.Name));
 
-            CreateMap<ChequeLayout, ChequeLayoutDto>();
+            CreateMap<ChequeLayout, ChequeLayoutDto>().ReverseMap();
+            CreateMap<Media, MedaiDto>().ReverseMap();
         }
     }
 }

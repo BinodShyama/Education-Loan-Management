@@ -21,6 +21,7 @@ namespace LoanManagement
             services.TryAddSingleton<IHttpContextAccessor, HttpContextAccessor>();
             services.AddScoped<IStatus, Status>();
             services.AddTransient<IActivity, Activity>();
+            services.AddTransient<IChequePrint, ChequePrint>();
             SeedAccountsData.Initialize(services.BuildServiceProvider().GetService<IServiceScopeFactory>().CreateScope().ServiceProvider).Wait();
             return services; }
 
