@@ -1,4 +1,5 @@
-﻿<nav id="mainnav-container">
+﻿@inject LoanManagement.Sevices.IAccountService _user
+<nav id="mainnav-container">
     <div id="mainnav">
 
 
@@ -22,20 +23,24 @@
                     <!--Profile Widget-->
                     <!--================================-->
                     <div id="mainnav-profile" class="mainnav-profile">
-                        <div class="profile-wrap text-center">
+                        <div class="profile-name software-name">
+                               @* <img src="/img/logo.png" alt="Bhaktapur Municipality" class="brand-icon p-1">*@
+                                <div class="brand-title text-center">
+                                    <span class="brand-text">Education Loan <br>Software</span>
+                                </div>
+                        </div>
+                        @*<div class="profile-wrap text-center">
                             <div class="pad-btm">
                                 <img class="rounded-circle img-md" src="/img/profile-photos/1.png" alt="Profile Picture">
                             </div>
-                            <a href="#profile-nav" class="box-block">
-                                <p class="mnp-name">@User.Identity.Name</p>
-                            </a>
-                        </div>
+                           
+                        </div>*@
 
                     </div>
-                    <ul id="mainnav-menu" class="list-group">
+                    <ul id="mainnav-menu" class="list-group mainnav-menu">
 
                         <!--Category name-->
-                        <li class="list-header">Navigation</li>
+                        @*<li class="list-header">Navigation</li>*@
 
                         <!--Menu list item-->
                         @*<li>
@@ -48,29 +53,42 @@
                         <li class="list-divider"></li>
 
                         <li>
-                            <a href="/Member/Index">
+                            <a href="#">
                                 <i class="fa-solid fa-users"></i>
                                 <span class="menu-title">
                                     Members
                                 </span>
+                                <i class="arrow"></i>
                             </a>
+                            <ul class="collapse" aria-expanded="false" style="">
+                                <li><a href="/member/index">Member List</a></li>
+                                <li><a href="/member/create">New Member</a></li>
+                            </ul>
                         </li>
                         <li>
-                            <a href="/LoanDisbrusement/Index">
+                            <a href="#">
                                 <i class="fa-solid fa-money-bill"></i>
                                 <span class="menu-title">
-                                    Loan Disbursement
+                                    Loan
                                 </span>
+                                <i class="arrow"></i>
                             </a>
+                            <ul class="collapse" aria-expanded="false" style="">
+                                <li><a href="/LoanDisbrusement/Index">Disbrusement List</a></li>
+                                <li><a href="/LoanDisbrusement/create">New Disbrusement</a></li>
+                                <li><a href="/LoanCollection/Index">Collection List</a></li>
+                                <li><a href="/LoanCollection/create">New Collection</a></li>
+
+                            </ul>
+
+                            @*<a href="/LoanDisbrusement/Index">
+                                    <i class="fa-solid fa-money-bill"></i>
+                                    <span class="menu-title">
+                                        Loan Disbursement
+                                    </span>
+                                </a>*@
                         </li>
-                        <li>
-                            <a href="/LoanCollection/Index">
-                                <i class="fa-solid fa-money-bill"></i>
-                                <span class="menu-title">
-                                    Loan Collection
-                                </span>
-                            </a>
-                        </li>
+
 
                         <!--Menu list item-->
                         <!--Menu list item-->

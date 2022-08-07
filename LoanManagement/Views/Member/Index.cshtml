@@ -20,13 +20,13 @@
             <h3 class="panel-title">Lists of Members</h3>
         </div>
         <div class="panel-body">
-            <div class="pad-btm form-inline">
+            @*<div class="pad-btm form-inline">
                 <div class="row">
                     <div class="col-sm-12 table-toolbar-left">
                         <a href="/Member/Create" class="btn btn-purple"><i class="fa-solid fa-plus"></i> Add Member</a>
                     </div>
                 </div>
-            </div>
+            </div>*@
 
             <div class="card mb-1">
                 <div class="panel-heading">
@@ -57,7 +57,7 @@
                             </select>
                         </div>
                         <div class="col-md-3 form-group">
-                            <label for="institution">Institution....</label>
+                            <label for="institution">Institution</label>
                             <select id="institution" asp-items="@await _list.GetInstitutionList()" class="custom-select state w-100 select-chosen">
                                 <option value="">Select Institution</option>
                             </select>

@@ -20,7 +20,11 @@ namespace LoanManagement.Application
             Host.CreateDefaultBuilder(args)
                 .ConfigureWebHostDefaults(webBuilder =>
                 {
-                    webBuilder.UseStartup<Startup>();
+                    webBuilder
+                    .UseIISIntegration()
+                    .UseIIS()
+                    .UseStartup<Startup>();
+
                 });
     }
 }

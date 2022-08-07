@@ -3,6 +3,15 @@
 
 // Write your JavaScript code.
 
+$(function () {
+    var menu = $('.mainnav-menu').find('a').filter(function () {
+        return $(this).attr('href').toLowerCase() == window.location.pathname.toLowerCase();
+    }).parent();
+    menu.addClass('active-link');
+    if (!menu.parent().hasClass('collapse in')) {
+        menu.parent().addClass('in')
+    }
+});
 $("input.ndate").inputmask({ "mask": "9999-99-99" })
 $('.select-chosen').chosen();
 $('.toast').toast('show');

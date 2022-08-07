@@ -81,5 +81,10 @@ namespace LoanManagement.Controllers
             }
         }
 
+        public async Task<IActionResult> ViewAsync(string id)
+        {
+            var result = await _mediator.Send(new GetUserByIdQuery { id = id });
+            return View(result);
+        }
     }
 }

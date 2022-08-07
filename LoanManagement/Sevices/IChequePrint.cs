@@ -96,14 +96,14 @@ namespace LoanManagement.Sevices
 
                 // gfx.DrawString("2 2 0 4 2 0 7 9", font, XBrushes.Black, new XPoint(XUnit.FromCentimeter(layout.XDate), XUnit.FromCentimeter(layout.YDate)));
 
-                gfx.DrawString($"**{data.Payee}**", font, XBrushes.Black, new XPoint(XUnit.FromCentimeter(layout.XPayee), XUnit.FromCentimeter(layout.YPayee)));
+                gfx.DrawString($"{data.Payee}", font, XBrushes.Black, new XPoint(XUnit.FromCentimeter(layout.XPayee), XUnit.FromCentimeter(layout.YPayee)));
 
-                gfx.DrawString($"**{data.Amount}**", font, XBrushes.Black, new XPoint(XUnit.FromCentimeter(layout.XAmount), XUnit.FromCentimeter(layout.YAmount)));
+                gfx.DrawString($"{data.Amount}", font, XBrushes.Black, new XPoint(XUnit.FromCentimeter(layout.XAmount), XUnit.FromCentimeter(layout.YAmount)));
 
                 XRect rect = new XRect(XUnit.FromCentimeter(layout.XAmountInWordLine1), XUnit.FromCentimeter(layout.YAmountInWordLine1), XUnit.FromCentimeter(10), XUnit.FromCentimeter(1.3));
 
                 tf.Alignment = XParagraphAlignment.Center;
-                tf.DrawString($"**{data.AmountInWord}**", font, XBrushes.Black, rect, XStringFormats.TopLeft);
+                tf.DrawString($"{data.AmountInWord}", font, XBrushes.Black, rect, XStringFormats.TopLeft);
 
                 string filename = Guid.NewGuid() + "." + "pdf";
                 string folderpath = _hostingEnvironment.ContentRootPath;
